@@ -39,7 +39,7 @@ a{
 a:visited{
     text-decoration: none;
 }
-a:hover{
+#nav-list a:hover{
     opacity: .8;
 }
 #nav-list button{
