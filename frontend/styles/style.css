@@ -25,6 +25,7 @@ nav{
 ul{
     display: flex;
     gap: 12px;
+    padding-right: 3rem;
 }
 li{
     list-style: none;
@@ -37,4 +38,7 @@ a{
 }
 a:visited{
     text-decoration: none;
+}
+a:hover{
+    opacity: .8;
 }
