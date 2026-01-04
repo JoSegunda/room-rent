@@ -5,10 +5,21 @@
     width: 100%;
 }
 #signin-content{
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
     margin: auto;
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 1px 1px 3px 1px #000;
     width: 30rem;
     background-color: #F8F9FA;
+}
+#entrar-img{
+    margin: auto;
+}
+#entrar-text{
+    text-align: center;
+    padding-bottom: 2rem;
 }
