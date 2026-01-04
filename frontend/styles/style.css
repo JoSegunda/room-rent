@@ -15,6 +15,10 @@ nav{
     display: flex;
     flex-direction: row;
 }
+ul{
+    display: flex;
+    gap: 12px;
+}
 li{
     list-style: none;
 }
