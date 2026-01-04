@@ -79,7 +79,12 @@ a:visited{
     margin-top: 3rem;
     width: 9rem;
     padding: .8rem;
-    outline: 0;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 0;
+}
+#landing-img-text button:nth-child(1):hover{
+    opacity: .8;
 }
 
 /* FOOTER */
