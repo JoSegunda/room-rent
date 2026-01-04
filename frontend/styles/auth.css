@@ -32,6 +32,25 @@ input{
     border-radius: 12px;
 
 }
+#sign-in > p{
+    
+    color: #e8e8e9;
+}
+#sign-in a{
+    color: #848485;
+    font-size: .7rem;
+    text-align: right;
+}
+
+#sign-in > button{
+    border: 0;
+    padding: 1rem;
+    background-color: #52B788;
+    color: #FFFFFF;
+    border-radius: 1.4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
 #entrar-text{
     text-align: center;
     padding-bottom: 2rem;
