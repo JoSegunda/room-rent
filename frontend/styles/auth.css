@@ -24,10 +24,13 @@
 #entrar-text{
     text-align: center;
     color: #e8e8e9;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
 }
 #entrar-text h1{
     font-size: 3rem;
+}
+#entrar-text p{
+    font-size: 1.5rem;
 }
 
 form{
