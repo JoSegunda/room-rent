@@ -10,7 +10,11 @@ header{
     background-color: #2D6A4F;
     display: flex;
 }
-#nav{
+nav{
+    width: 100%;
     display: flex;
     flex-direction: row;
+}
+li{
+    list-style: none;
 }
