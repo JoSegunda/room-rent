@@ -42,7 +42,15 @@ a:visited{
 a:hover{
     opacity: .8;
 }
-
+#nav-list button{
+    width: 4.5rem;
+    padding: .5rem;
+    border-radius: 12px;
+    border: 0;
+    color: #FFFFFF;
+    background-color: #52B788;
+    font-size: 1rem;
+}
 /* Landing Page */
 
 #landing-img{
