@@ -18,39 +18,62 @@
             <!-- <img src="./media/looking.png" alt=""> -->
         </div>
         
-        <!-- Seccção de login -->
-        <div id="signin-content" class="hide">
+        <!-- SECÇÃO DE AUTENTICAÇÃO -->
+        <div id="auth-content">
 
-            <div id="signin-form">
+            <div id="auth-form">
 
                 <div id="entrar-img">
                     <a href="index.html"><img src="./media/logor.png" alt="logo image" width="100px"></a>
                 </div>
+
+                <!-- SECÇÃO DE LOGIN -->
+                <div id="auth-entrar" >
+                    <div id="entrar-text">
+                        <h1>Bem-vindo de volta</h1>
+                        <p>Por favor, faça login na sua conta</p>
+                    </div>
             
-                <div id="entrar-text">
-                    <h1>Bem-vindo de volta</h1>
-                    <p>Por favor, faça login na sua conta</p>
+                    <form action="" id="sign-in">
+                        <input type="email" name="email" id="email" placeholder="Endereço de Email">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    
+                        <a href="#"> <p>Esqueceu-se da palavra-passe?</p></a>
+
+                        <button type="submit" class="btn">Entrar</button>
+                    </form>
+
+                    <p>Ainda não tens uma conta? <a href="#">Regista-te</a></p>
+                </div>
+
+                <!-- SECÇÃO DE REGISTO -->
+                <div id="signup-form" class="hide">
+                    <div id="entrar-text">
+                        <h1>Crie uma conta</h1>
+                        <p>Já tens uma conta? <a href="#">Entrar</a></p>
+                    </div>
+            
+                    <form action="" id="sign-up">
+                        <div id="fullnames">
+                            <input type="text" name="fname" id="fname">
+                            <input type="text" name="lname" id="lname">
+                        </div>
+                        <input type="email" name="email" id="email" placeholder="Endereço de Email">
+                        <input type="password" name="password" id="password" placeholder="Password">
+
+                        <button type="submit" class="btn">Registar</button>
+                    </form>
+
                 </div>
             
-                <form action="" id="sign-in">
-                    <input type="email" name="email" id="email" placeholder="Endereço de Email">
-                    <input type="password" name="password" id="password" placeholder="Password">
-                   
-                    <a href="#"> <p>Esqueceu-se da palavra-passe?</p></a>
-
-                    <button type="submit" class="btn">Entrar</button>
-                </form>
-
-                <p>Ainda não tens uma conta? <a href="#">Regista-te</a></p>
+                
             </div>
             
         </div>
 
 
         <!-- Secção de signup -->
-        <div id="signup-form" class="hide">
-
-        </div>
+        
     </section>
 </body>
 </html>

@@ -5,7 +5,7 @@
     width: 100%;
     border: 1px solid red;
 }
-#img-desc{
+#img-description{
     width: 50%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('../media/bdr.jpg');
@@ -14,14 +14,14 @@
     background-size: cover;
 }
 /* PÁGINA DE AUTENTICAÇÃO */
-#signin-content{
+#auth-content{
     box-shadow: 1px 1px 3px 1px #000;
     width: 30rem;
     background-color: #2F3E46;
     width: 50%;
     height: 100vh;
 }
-#signin-form{
+#auth-form{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -79,4 +79,10 @@ input{
 
 .hide{
     display: none;
+}
+
+#fullnames{
+    display: flex;
+    flex-direction: row;
+    
 }
