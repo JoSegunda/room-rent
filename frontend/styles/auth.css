@@ -1,4 +1,10 @@
 #authContent{
+    margin: 3rem;
+    padding: 3rem;
     height: 60vh;
     width: 100%;
+}
+#signin-form{
+    height: 15rem;
+    background-color: blueviolet;
 }
