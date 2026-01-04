@@ -43,7 +43,6 @@ input{
 }
 
 #sign-in > button{
-    border: 0;
     padding: 1rem;
     background-color: #52B788;
     color: #FFFFFF;
@@ -55,3 +54,4 @@ input{
     text-align: center;
     padding-bottom: 2rem;
 }
+#entrar-desc{}
