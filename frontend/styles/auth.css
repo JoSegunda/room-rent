@@ -1,6 +1,7 @@
 #authContent{
     display: flex;
-    margin: 1rem;
+    flex-direction: row;
+   
     height: 50vh;
     width: 100%;
 }
@@ -54,4 +55,11 @@ input{
     text-align: center;
     padding-bottom: 2rem;
 }
-#entrar-desc{}
+#img-desc{
+    width: 100vh;
+    height: 100vh;
+    background-image: url('../media/bdr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
