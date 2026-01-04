@@ -1,10 +1,18 @@
-#authContent{
+#authPage{
     display: flex;
     flex-direction: row;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
+    border: 1px solid red;
 }
-
+#img-desc{
+    width: 50%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('../media/bdr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* PÁGINA DE AUTENTICAÇÃO */
 #signin-content{
     box-shadow: 1px 1px 3px 1px #000;
@@ -67,14 +75,7 @@ input{
     font-size: 1.2rem;
 }
 
-#img-desc{
-    width: 50%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('../media/bdr.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .hide{
     display: none;
