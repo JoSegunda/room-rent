@@ -5,6 +5,11 @@
 }
 
 /* Header */
+header{
+    width: 100%;
+    background-color: #2D6A4F;
+    display: flex;
+}
 #nav{
     display: flex;
     flex-direction: row;
