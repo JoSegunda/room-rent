@@ -25,12 +25,14 @@ form{
     flex-direction: column;
 }
 input{
-    padding: .6rem;
+    background-color: #e8e8e9;
+    padding: 1rem;
     border: 0;
     outline: 0;
     border-radius: 12px;
 
 }
 #entrar-text{
+    text-align: center;
     padding-bottom: 2rem;
 }
