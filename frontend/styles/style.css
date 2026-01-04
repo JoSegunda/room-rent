@@ -53,3 +53,10 @@ a:hover{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#landing-img-text{
+    position: relative;
+    bottom: 40rem;
+    text-align: center;
+    color: #F8F9FA;
+}
