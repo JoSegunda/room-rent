@@ -29,5 +29,12 @@ ul{
 li{
     list-style: none;
     font-size: 1.5em;
-    color: ##F8F9FA;
+    
+}
+a{
+    text-decoration: none;
+    color: #F8F9FA;
+}
+a:visited{
+    text-decoration: none;
 }
