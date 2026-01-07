@@ -125,5 +125,12 @@ a:visited{
 /* FOOTER */
 footer{
     background-color: #2F3E46;
-    height: 10rem;
+    height: 5rem;
+    color: #F8F9FA;
+}
+footer p:nth-child(3){
+    text-align: center;
+}
+footer a{
+    float: right;
 }
