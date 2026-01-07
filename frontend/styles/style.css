@@ -123,9 +123,12 @@ a:visited{
 }
 
 /* FOOTER */
+#credits{
+    padding: 1rem;
+}
 footer{
     background-color: #2F3E46;
-    height: 5rem;
+   
     color: #F8F9FA;
 }
 footer p:nth-child(3){
