@@ -55,6 +55,9 @@ a:visited{
     font-size: 1rem;
 }
 /* Landing Page */
+#landing{
+    height: 89.9vh;
+}
 
 #landing-img{
     height: 89.9vh;
