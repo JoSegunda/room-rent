@@ -95,14 +95,22 @@ a:visited{
 }
 #search-box{
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    gap: .5rem;
     border: 1px solid red;
     width: 30%;
     margin: auto;
     background-color: #ffffff;
-    padding-left: .5rem;
+    padding: .5rem;
+    margin-top: 1rem;
 }
-
+#search-box > input{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    height: 2rem;
+    font-family: 'poppins','Courier New', Courier, monospace;
+}
 
 /* FOOTER */
 footer{
