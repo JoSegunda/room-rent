@@ -68,8 +68,12 @@ a:visited{
 #landing-img-text{
     position: relative;
     bottom: 40rem;
+    width: fit-content;
+    margin: auto;
     text-align: center;
     color: #F8F9FA;
+    padding: 2rem;
+    background: #2f3e46c7;
 }
 #landing-img-text > h1{
     font-size: 3rem;
