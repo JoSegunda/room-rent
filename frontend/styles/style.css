@@ -89,6 +89,18 @@ a:visited{
 #landing-img-text button:nth-child(1):hover{
     opacity: .8;
 }
+/* Caixa de pesquisa */
+.fa-magnifying-glass{
+    color: #2F3E46;
+}
+#search-box{
+    border: 1px solid red;
+    width: fit-content;
+    margin: auto;
+    background-color: #ffffff;
+    padding-left: .5rem;
+}
+
 
 /* FOOTER */
 footer{
