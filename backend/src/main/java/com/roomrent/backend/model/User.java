@@ -16,6 +16,9 @@ public class User {
 
     private String password;
 
+
+    // getters e setters
+
     public Long getId() {
         return id;
     }
@@ -48,6 +51,6 @@ public class User {
         this.password = password;
     }
 
-    // getters e setters
+    
     
 }
