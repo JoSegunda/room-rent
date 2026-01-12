@@ -18,16 +18,26 @@
 }
 #users-msg{
     width: 20rem;
-    height: 150px;
+    height: 80vh;
     overflow: auto;
     border: 1px solid #ccc;
     padding: 10px;
 }
+#user-photo{
+    border-radius: 100%;
+}
 #talking-user{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     border: 1px solid #1C1C1C;
     gap: 1rem;
+    cursor: pointer;
+}
+#talking-date{
+    font-size: .7rem;
+    color: #ccc;
+    align-self: flex-start;
+    padding-top: .4rem;
 }
 /* Tablets */
 @media (max-width:768px){
