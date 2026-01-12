@@ -16,8 +16,12 @@
     cursor: pointer;
     margin-bottom: .5rem;
 }
+#msg-view{
+    display: flex;
+    gap: 1rem;
+}
 #users-msg{
-    width: 20rem;
+    width: 40rem;
     height: 80vh;
     overflow: auto;
     border: 1px solid #ccc;
@@ -38,6 +42,11 @@
     color: #ccc;
     align-self: flex-start;
     padding-top: .4rem;
+}
+#user-chat{
+    border: 1px solid #ccc;
+    height: 80vh;
+    width: 100%;
 }
 /* Tablets */
 @media (max-width:768px){
