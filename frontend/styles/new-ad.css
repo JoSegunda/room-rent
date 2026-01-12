@@ -1,0 +1,15 @@
+#ad-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.ad-nav-item{
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-top-right-radius: 120rem;
+    border-left: 0;
+    border-bottom-right-radius: 120rem;
+
+}
