@@ -3,9 +3,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    background-color: #1C1C1C;
-
-    
+    gap: 0;
 }
 .ad-nav-item{
     padding: 1rem;
@@ -14,5 +12,10 @@
     border-top-right-radius: 120rem;
     border-left: 0;
     border-bottom-right-radius: 120rem;
+    font-size: 1.5rem;
+    color: #ccc;
+}
 
+.ad-nav-item:nth-child(1){
+    background-color: #1c1c1c;
 }
