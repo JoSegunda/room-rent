@@ -3,10 +3,13 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
+    background-color: #1C1C1C;
+
+    
 }
 .ad-nav-item{
     padding: 1rem;
-    border: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     width: 100%;
     border-top-right-radius: 120rem;
     border-left: 0;
