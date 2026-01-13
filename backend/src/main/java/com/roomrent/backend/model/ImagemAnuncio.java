@@ -1,4 +1,4 @@
-import com.roomrent.backend.model;
+package com.roomrent.backend.model;
 
 @Entity
 @Table(name = "ImagensAnuncio")
