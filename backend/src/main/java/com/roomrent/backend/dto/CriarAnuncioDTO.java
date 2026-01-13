@@ -1,10 +1,8 @@
-package com.roomrent.dto;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
-public class AnuncioDTO {
+
+public class CriarAnuncioDTO{
     private Long id;
     private String adType; // "OFFER" or "SEARCH"
     private String titulo;
@@ -62,7 +60,6 @@ public class AnuncioDTO {
     // Tempos
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    
     public Long getId() {
         return id;
     }
@@ -297,8 +294,8 @@ public class AnuncioDTO {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-    
 
-    // Setter e getters
+    // Setters e getters
+
     
 }
