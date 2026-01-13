@@ -6,9 +6,20 @@
     box-sizing: border-box;
     font-family: 'poppins','Courier New', Courier, monospace;
 }
-.btn{
-    border: 0;
-    outline: 0;
+.btn {
+  background: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  align-items: center;
+  gap: 8px;
+}
+.btn:hover {
+  background: var(--light-gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 /* Header */
