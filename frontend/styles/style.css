@@ -142,14 +142,33 @@ a:visited{
 #credits{
     padding: 1rem;
 }
-footer{
-    background-color: #2F3E46;
-   
-    color: #F8F9FA;
+
+footer {
+  background: #1b4332;
+  color: white;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
 }
-footer p:nth-child(3){
-    text-align: center;
+
+#credits {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
 }
-footer a{
-    float: right;
+
+#credits a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+#credits a:hover {
+  text-decoration: underline;
+}
+
+#credits hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 1rem auto;
+  width: 200px;
 }
