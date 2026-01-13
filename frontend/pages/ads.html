@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../media/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/6b22cd0e8c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="./scripts/app.js" defer></script>
     <title>Rent a Room</title>
+
+    <style>
+        #main-ad{
+            height: 100vh;
+            background-color: #ccc;
+            width: 60%;
+            margin:8rem auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,8 +30,36 @@
             </ul>
         </nav>
     </header>
+    <h1>50 quartos para arrendar em Évora</h1>
+    <section id="main-ad">
+        <form action="" id="filter-form">
+            <label for="">Ordenar:</label>
+            <select name="filter-options" id="filter-options">
+                <option value="">Filtrar</option>
+                <option value="baratos">Baratos</option>
+                <option value="recentes">Mais recentes</option>
+                <option value="caro">Preço mais alto</option>
+            </select>
+        </form>
 
-    
+        <div id="ads-list">
+            <div class="ad-wrapper">
+                <div id="ad-img" ></div>
+                <div class="ad-content">
+                    <h1>Quarto na Travessa José Augusto Barrisco, 5, Bacelo e Senhora da Saúde, Évora</h1>
+                    <h2>250 €/mês</h2>
+                    <div class="extra-ad-info">
+                        <p>3 quartos.</p>
+                        <p>2 raparigas</p>
+                        <p>Não se pode fumar</p>
+                    </div>
+                    <p>Aluga-se quarto em vivenda tipologia t3. Quarto completamente equipado, 
+                        com bastante luz natural, numa zona privilegiada da cidade, 
+                        perto de todos os bens e serviços.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div id="credits">
