@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "advertisements")
+@Table(name = "Anuncios")
 public class Anuncio {
     
     @Id
@@ -72,51 +72,46 @@ public class Anuncio {
     
     @Column(name = "permitido_casais")
     private Boolean permitidoCasais = false;
+
+    @Column(name = "permitido_visitas")
+    private Boolean permitidoVisitas = false;
+
     
-    // Desired Profile
-    @Column(name = "min_age")
-    private Integer minAge;
+    // Perfil procurado
+    @Column(name = "idade_min")
+    private Integer idadeMin;
     
-    @Column(name = "max_age")
-    private Integer maxAge;
+    @Column(name = "idade_max")
+    private Integer idadeMax;
     
-    @Column(name = "preferred_gender")
-    private String preferredGender;
+    @Column(name = "genero_preferido")
+    private String generoPrefer;
     
-    @Column(name = "min_stay_months")
-    private Integer minStayMonths = 6;
+    @Column(name = "estadia_min")
+    private Integer estadiaMin = 6;
     
-    @Column(name = "availability_date")
-    private LocalDate availabilityDate;
+    @Column(name = "ocupacao_preferida")
+    private String ocupacaoPrefer; // JSON string 
     
-    @Column(name = "preferred_occupation")
-    private String preferredOccupation; // JSON string or comma separated
+    // Características da propriedade (como JSON ou tabela separada)
+    @Column(name = "atributos_propriedades", columnDefinition = "TEXT")
+    private String propertyFeatures; // JSON: ["wifi"]
     
-    // Property Features (as JSON or separate table)
-    @Column(name = "property_features", columnDefinition = "TEXT")
-    private String propertyFeatures; // JSON: ["wifi", "heating", "balcony", etc.]
-    
-    // Room Features
+    // Cracterísticas do quarto
     @Column(name = "room_features", columnDefinition = "TEXT")
-    private String roomFeatures; // JSON: ["furnished", "builtin_wardrobe", "desk", etc.]
+    private String roomFeatures; // JSON: ["mobilado"]
     
-    // Roommate Info
-    @Column(name = "total_housemates")
-    private Integer totalHousemates;
+    // Companheiros Info
+    @Column(name = "colegas_totais")
+    private Integer colegasTotais;
     
-    @Column(name = "housemates_age_range")
-    private String housematesAgeRange;
+    @Column(name = "idade_colegas")
+    private String idadeColegas;
     
-    @Column(name = "housemates_occupation")
-    private String housematesOccupation;
-    
-    @Column(name = "owner_lives_in")
-    private Boolean ownerLivesIn = false;
-    
-    @Column(name = "housemates_description", columnDefinition = "TEXT")
-    private String housematesDescription;
-    
-    // Status
+    @Column(name = "ocupacao_colegas")
+    private String ocupacaoColegas;
+
+    // Estado do anúncio
     @Column(name = "is_active")
     private Boolean isActive = true;
     
@@ -141,8 +136,8 @@ public class Anuncio {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
     
-    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<AdvertisementImage> images = new HashSet<>();
+    @OneToMany(mappedBy = "anuncio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<imagemAnuncio> images = new HashSet<>();
     
     @PrePersist
     protected void onCreate() {
@@ -159,7 +154,328 @@ public class Anuncio {
     public enum AdType {
         OFFER, SEARCH
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public AdType getAdType() {
+        return adType;
+    }
+
+    public void setAdType(AdType adType) {
+        this.adType = adType;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getMoeda() {
+        return moeda;
+    }
+
+    public void setMoeda(String moeda) {
+        this.moeda = moeda;
+    }
+
+    public String getPaymentPeriod() {
+        return paymentPeriod;
+    }
+
+    public void setPaymentPeriod(String paymentPeriod) {
+        this.paymentPeriod = paymentPeriod;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getFreguesia() {
+        return freguesia;
+    }
+
+    public void setFreguesia(String freguesia) {
+        this.freguesia = freguesia;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCodPostal() {
+        return codPostal;
+    }
+
+    public void setCodPostal(String codPostal) {
+        this.codPostal = codPostal;
+    }
+
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public Integer getTotalRooms() {
+        return totalRooms;
+    }
+
+    public void setTotalRooms(Integer totalRooms) {
+        this.totalRooms = totalRooms;
+    }
+
+    public Integer getQuartosLivres() {
+        return quartosLivres;
+    }
+
+    public void setQuartosLivres(Integer quartosLivres) {
+        this.quartosLivres = quartosLivres;
+    }
+
+    public Double getArea() {
+        return Area;
+    }
+
+    public void setArea(Double area) {
+        Area = area;
+    }
+
+    public Double getQuartoArea() {
+        return quartoArea;
+    }
+
+    public void setQuartoArea(Double quartoArea) {
+        this.quartoArea = quartoArea;
+    }
+
+    public String getAndar() {
+        return andar;
+    }
+
+    public void setAndar(String andar) {
+        this.andar = andar;
+    }
+
+    public String getGenResAct() {
+        return genResAct;
+    }
+
+    public void setGenResAct(String genResAct) {
+        this.genResAct = genResAct;
+    }
+
+    public Boolean getPermitido_fumar() {
+        return permitido_fumar;
+    }
+
+    public void setPermitido_fumar(Boolean permitido_fumar) {
+        this.permitido_fumar = permitido_fumar;
+    }
+
+    public Boolean getPermitidoAnimais() {
+        return permitidoAnimais;
+    }
+
+    public void setPermitidoAnimais(Boolean permitidoAnimais) {
+        this.permitidoAnimais = permitidoAnimais;
+    }
+
+    public Boolean getPermitidoCasais() {
+        return permitidoCasais;
+    }
+
+    public void setPermitidoCasais(Boolean permitidoCasais) {
+        this.permitidoCasais = permitidoCasais;
+    }
+
+    public Boolean getPermitidoVisitas() {
+        return permitidoVisitas;
+    }
+
+    public void setPermitidoVisitas(Boolean permitidoVisitas) {
+        this.permitidoVisitas = permitidoVisitas;
+    }
+
+    public Integer getIdadeMin() {
+        return idadeMin;
+    }
+
+    public void setIdadeMin(Integer idadeMin) {
+        this.idadeMin = idadeMin;
+    }
+
+    public Integer getIdadeMax() {
+        return idadeMax;
+    }
+
+    public void setIdadeMax(Integer idadeMax) {
+        this.idadeMax = idadeMax;
+    }
+
+    public String getGeneroPrefer() {
+        return generoPrefer;
+    }
+
+    public void setGeneroPrefer(String generoPrefer) {
+        this.generoPrefer = generoPrefer;
+    }
+
+    public Integer getEstadiaMin() {
+        return estadiaMin;
+    }
+
+    public void setEstadiaMin(Integer estadiaMin) {
+        this.estadiaMin = estadiaMin;
+    }
+
+    public String getOcupacaoPrefer() {
+        return ocupacaoPrefer;
+    }
+
+    public void setOcupacaoPrefer(String ocupacaoPrefer) {
+        this.ocupacaoPrefer = ocupacaoPrefer;
+    }
+
+    public String getPropertyFeatures() {
+        return propertyFeatures;
+    }
+
+    public void setPropertyFeatures(String propertyFeatures) {
+        this.propertyFeatures = propertyFeatures;
+    }
+
+    public String getRoomFeatures() {
+        return roomFeatures;
+    }
+
+    public void setRoomFeatures(String roomFeatures) {
+        this.roomFeatures = roomFeatures;
+    }
+
+    public Integer getColegasTotais() {
+        return colegasTotais;
+    }
+
+    public void setColegasTotais(Integer colegasTotais) {
+        this.colegasTotais = colegasTotais;
+    }
+
+    public String getIdadeColegas() {
+        return idadeColegas;
+    }
+
+    public void setIdadeColegas(String idadeColegas) {
+        this.idadeColegas = idadeColegas;
+    }
+
+    public String getOcupacaoColegas() {
+        return ocupacaoColegas;
+    }
+
+    public void setOcupacaoColegas(String ocupacaoColegas) {
+        this.ocupacaoColegas = ocupacaoColegas;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public Boolean getIsFeatured() {
+        return isFeatured;
+    }
+
+    public void setIsFeatured(Boolean isFeatured) {
+        this.isFeatured = isFeatured;
+    }
+
+    public Integer getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(Integer viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(LocalDateTime expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Set<imagemAnuncio> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<imagemAnuncio> images) {
+        this.images = images;
+    }
     
     // Getters and Setters
+    
     
 }
