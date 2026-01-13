@@ -43,10 +43,10 @@ public class Anuncio {
     
     // Property Details
     @Column(name = "tipoCasa")
-    private String propertyType; // T1, T2, T3, etc.
+    private String tipoCasa; // T1, T2, T3, etc.
     
-    @Column(name = "total_rooms")
-    private Integer totalRooms;
+    @Column(name = "Numero_de_quartos")
+    private Integer numQuartos;
     
     @Column(name = "quartosLivres")
     private Integer quartosLivres;
@@ -57,7 +57,7 @@ public class Anuncio {
     @Column(name = "quarto_area")
     private Double quartoArea;
     
-    @Column(name = "anda")
+    @Column(name = "andar")
     private String andar;
     
     @Column(name = "genero_residentes_atuais")
@@ -94,11 +94,11 @@ public class Anuncio {
     private String ocupacaoPrefer; // JSON string 
     
     // Características da propriedade (como JSON ou tabela separada)
-    @Column(name = "atributos_propriedades", columnDefinition = "TEXT")
+    @Column(name = "property_features", columnDefinition = "TEXT")
     private String propertyFeatures; // JSON: ["wifi"]
     
     // Cracterísticas do quarto
-    @Column(name = "room_features", columnDefinition = "TEXT")
+    @Column(name = "room_feature", columnDefinition = "TEXT")
     private String roomFeatures; // JSON: ["mobilado"]
     
     // Companheiros Info
@@ -243,20 +243,20 @@ public class Anuncio {
         this.codPostal = codPostal;
     }
 
-    public String getPropertyType() {
-        return propertyType;
+    public String getTipoCasa() {
+        return tipoCasa;
     }
 
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
+    public void setTipoCasa(String tipoCasa) {
+        this.tipoCasa = tipoCasa;
     }
 
-    public Integer getTotalRooms() {
-        return totalRooms;
+    public Integer getNumQuartos() {
+        return numQuartos;
     }
 
-    public void setTotalRooms(Integer totalRooms) {
-        this.totalRooms = totalRooms;
+    public void setNumQuartos(Integer numQuartos) {
+        this.numQuartos = numQuartos;
     }
 
     public Integer getQuartosLivres() {
