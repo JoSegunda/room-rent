@@ -1,6 +1,9 @@
 package com.roomrent.backend.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -78,9 +81,7 @@ public class User {
     public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
 
     public LocalDateTime getUpdatedAt() {return updatedAt;}
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
 
     public Set<Advertisement> getAdvertisements() {return advertisements;}
     public void setAdvertisements(Set<Advertisement> advertisements) {this.advertisements = advertisements;}
