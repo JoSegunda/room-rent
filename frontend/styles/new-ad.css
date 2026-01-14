@@ -365,14 +365,6 @@ input:focus, select:focus, textarea:focus {
     font-weight: 500;
 }
 
-/* Rules Grid */
-.rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
 /* Features Grid */
 .features-grid {
     display: grid;
