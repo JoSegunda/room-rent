@@ -283,41 +283,6 @@ input:focus, select:focus, textarea:focus {
     margin-top: 0.5rem;
 }
 
-.checkbox-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.checkbox-option input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-custom {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border-color);
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-    transition: var(--transition);
-}
-
-.checkbox-option input[type="checkbox"]:checked + .checkbox-custom {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.checkbox-option input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-}
 
 /* Switch Toggle */
 .switch {

@@ -139,10 +139,10 @@
                 
             </section>
 
-            <!-- Seção 5: Perfil Procurado -->
+            <!-- Seção 4: Perfil Procurado -->
             <section class="form-section">
                 <h2 class="section-title">
-                    <span class="step-number">5</span>
+                    <span class="step-number">4</span>
                     Perfil Procurado
                 </h2>
                 <div class="form-grid">
@@ -159,21 +159,9 @@
                     <div class="form-group">
                         <label for="genero-procurado"><i class="fas fa-venus-mars"></i> Género Preferido</label>
                         <select id="genero-procurado" name="genero-procurado">
-                            <option value="">Sem preferência</option>
+                            <option value="">Indiferente</option>
                             <option value="feminino">Feminino</option>
                             <option value="masculino">Masculino</option>
-                            <option value="ambos">Ambos</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="estadia-minima"><i class="fas fa-calendar-alt"></i> Estadia Mínima</label>
-                        <select id="estadia-minima" name="estadia-minima">
-                            <option value="1">1 mês</option>
-                            <option value="3">3 meses</option>
-                            <option value="6" selected>6 meses</option>
-                            <option value="12">1 ano</option>
-                            <option value="24">2 anos</option>
                         </select>
                     </div>
                 </div>
@@ -182,63 +170,35 @@
                     <label for="ocupacao-procurada"><i class="fas fa-briefcase"></i> Ocupação Preferida</label>
                     <div class="checkbox-group">
                         <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao" value="estudante">
-                            <span class="checkbox-custom"></span>
+                            <input type="radio" name="ocupacao" value="estudante">
+                            
                             <span>Estudante</span>
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao" value="trabalhador">
-                            <span class="checkbox-custom"></span>
+                            <input type="radio" name="ocupacao" value="trabalhador">
+                            
                             <span>Trabalhador</span>
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao" value="estudante-trabalhador">
-                            <span class="checkbox-custom"></span>
+                            <input type="radio" name="ocupacao" value="estudante-trabalhador">
+                            
                             <span>Estudante/Trabalhador</span>
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao" value="outro">
-                            <span class="checkbox-custom"></span>
+                            <input type="radio" name="ocupacao" value="outro">
+                           
                             <span>Outro</span>
                         </label>
                     </div>
                 </div>
             </section>
 
-            <!-- Seção 6: Características do Imóvel -->
+            <!-- Seção 5: Características do Imóvel -->
             <section class="form-section">
                 <h2 class="section-title">
-                    <span class="step-number">6</span>
+                    <span class="step-number">5</span>
                     Características do Imóvel
                 </h2>
-                <div class="features-grid">
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas" value="internet">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-wifi"></i>
-                            <span>Internet</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas" value="lavandaria">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-soap"></i>
-                            <span>Lavandaria</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas" value="cozinha-equipada">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-utensils"></i>
-                            <span>Cozinha Equipada</span>
-                        </label>
-                    </div>
-                </div>
                 
                 <div class="form-group">
                     <label for="area-imovel"><i class="fas fa-ruler-combined"></i> Área do Imóvel (m²)</label>
@@ -272,85 +232,7 @@
                     
                 </div>
                 
-                <div class="features-grid">
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas-quarto" value="mobilado">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-couch"></i>
-                            <span>Quarto Mobilado</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas-quarto" value="armario">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-archive"></i>
-                            <span>Armário Embutido</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-feature">
-                            <input type="checkbox" name="caracteristicas-quarto" value="secretaria">
-                            <span class="checkbox-custom"></span>
-                            <i class="fas fa-desktop"></i>
-                            <span>Secretária</span>
-                        </label>
-                    </div>
-                    
-                </div>
-            </section>
-
-            <!-- Seção 8: Companheiros de Casa -->
-            <section class="form-section">
-                <h2 class="section-title">
-                    <span class="step-number">8</span>
-                    Companheiros de Casa
-                </h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="total-moradores"><i class="fas fa-user-friends"></i> Total de Moradores</label>
-                        <select id="total-moradores" name="total-moradores">
-                            <option value="">Selecione</option>
-                            <option value="1">1 pessoa</option>
-                            <option value="2">2 pessoas</option>
-                            <option value="3">3 pessoas</option>
-                            <option value="4">4 pessoas</option>
-                            <option value="5+">5 ou mais pessoas</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="idade-moradores"><i class="fas fa-users"></i> Idade dos Moradores</label>
-                        <input type="text" id="idade-moradores" name="idade-moradores" 
-                               placeholder="Ex: 22-30 anos">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="ocupacao-moradores"><i class="fas fa-briefcase"></i> Ocupação dos Moradores</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao-moradores" value="estudantes">
-                            <span class="checkbox-custom"></span>
-                            <span>Estudantes</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao-moradores" value="trabalhadores">
-                            <span class="checkbox-custom"></span>
-                            <span>Trabalhadores</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="ocupacao-moradores" value="ambos">
-                            <span class="checkbox-custom"></span>
-                            <span>Ambos</span>
-                        </label>
-                    </div>
-                </div>
-                
-                
+               
             </section>
 
             <!-- Seção 9: Descrição e Fotos -->
