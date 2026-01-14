@@ -239,83 +239,6 @@ input:focus, select:focus, textarea:focus {
     margin-top: 0.5rem;
 }
 
-
-/* Switch Toggle */
-.switch {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    user-select: none;
-}
-
-.switch input {
-    display: none;
-}
-
-.slider {
-    position: relative;
-    width: 50px;
-    height: 26px;
-    background: var(--border-color);
-    border-radius: 34px;
-    transition: var(--transition);
-}
-
-.slider:before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 4px;
-    background: white;
-    border-radius: 50%;
-    transition: var(--transition);
-}
-
-.switch input:checked + .slider {
-    background: var(--primary-color);
-}
-
-.switch input:checked + .slider:before {
-    transform: translateX(24px);
-}
-
-.switch-label {
-    font-weight: 500;
-}
-
-/* Features Grid */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.checkbox-feature {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background: var(--light-color);
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.checkbox-feature:hover {
-    background: var(--light-gray);
-    transform: translateY(-2px);
-}
-
-.checkbox-feature i {
-    color: var(--primary-color);
-    width: 20px;
-    text-align: center;
-}
-
 /* Upload Area */
 .upload-area {
     border: 2px dashed var(--border-color);
@@ -455,36 +378,6 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(-2px);
 }
 
-/* Footer */
-footer {
-    background: var(--primary-dark);
-    color: white;
-    padding: 2rem 1rem;
-    margin-top: 4rem;
-}
-
-#credits {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#credits a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-#credits a:hover {
-    text-decoration: underline;
-}
-
-#credits hr {
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-    margin: 1rem auto;
-    width: 200px;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
