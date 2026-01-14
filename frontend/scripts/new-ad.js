@@ -1,5 +1,4 @@
 // Script para funcionalidades da página de adicionar anúncio
-
 document.addEventListener('DOMContentLoaded', function() {
     // Contador de caracteres para descrição
     const descricaoTextarea = document.getElementById('descricao');
@@ -109,10 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateFileInput();
     }
 
-    function updateFileInput() {
-        // Aqui você pode implementar a lógica para atualizar o input de arquivos
-        // se necessário (por exemplo, usando FormData)
-    }
 
     // Validação do formulário
     const form = document.getElementById('form-anuncio');
@@ -154,14 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Pré-visualização do anúncio
-    const btnPreview = document.getElementById('btn-preview');
-    if (btnPreview) {
-        btnPreview.addEventListener('click', function() {
-            // Aqui você pode implementar a lógica de pré-visualização
-            alert('Funcionalidade de pré-visualização em desenvolvimento.');
-        });
-    }
 
     // Validação de idade
     const idadeMin = document.getElementById('idade-min');
@@ -183,9 +170,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Auto-complete para cidade
-    const cidadeSelect = document.getElementById('cidade');
-    if (cidadeSelect) {
-        // Aqui você pode adicionar auto-complete ou outras funcionalidades
-    }
+    
 });
