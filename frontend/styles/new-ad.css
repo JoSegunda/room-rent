@@ -378,7 +378,6 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(-2px);
 }
 
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -399,23 +398,6 @@ input:focus, select:focus, textarea:focus {
     
     .form-actions {
         flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    
-    #nav-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
     }
     
     .page-header h1 {
