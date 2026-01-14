@@ -1,5 +1,5 @@
 const updateContent = () => {
-  const content = document.getElementById('content');
+  const content = document.getElementById('dinamic-container');
   const hash = window.location.hash.substring(1); // Remove the '#' from the hash
 
   switch (hash) {
