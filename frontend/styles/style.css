@@ -62,6 +62,14 @@ a:visited{
     font-size: 1rem;
     cursor: pointer;
 }
+#logo img {
+    transition: var(--transition);
+}
+
+#logo img:hover {
+    transform: scale(1.05);
+}
+
 #login{
     background-color: #52B788;
     width: 5rem;
