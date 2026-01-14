@@ -35,14 +35,23 @@ body {
     line-height: 1.6;
 }
 
-#logo img {
-    transition: var(--transition);
-}
 
-#logo img:hover {
-    transform: scale(1.05);
+/* Navigation */
+#navigation .container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-evenly;
+    font-weight: bold;
+    background-color: var(--light-gray);
+    max-width: 1170px;
+    margin: 2rem auto;
+    border-radius: var(--border-radius);
+    width: 100%;
 }
-
+#navigation a{
+    color: var(--primary-dark);;
+}
 /* Main Container */
 .container {
     max-width: 1200px;
