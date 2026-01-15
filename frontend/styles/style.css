@@ -103,44 +103,15 @@ a:visited{
     font-size: 1.5rem;
 }
 
-/* Caixa de pesquisa */
-.fa-magnifying-glass{
-    color: #2F3E46;
-}
-#search-box{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    width: 100%;
-    margin: auto;
-    background-color: #ffffff;
-    padding: .5rem;
-    
-}
-/* input dentro da search-box */
-#search-box > input{
-    width: 100%;
-    border: 0;
-    outline: 0;
-    height: 2rem;
-    font-family: 'poppins','Courier New', Courier, monospace;
-    color: #2F3E46;
-}
-#search-form{
-    display: flex;
-    width: 60%;
-    margin: auto;
+/* Botão */
+#text-actions button{
     margin-top: 2rem;
+    padding: 1rem;
+    width: 80%;
+    color: #1B4332;
+    font-size: 2rem;
+    background-color: #1B4332;
 }
-#search-form > button{
-    width: 10rem;
-    background-color: #52B788;
-    color: #FFFFFF;
-    border: 0;
-    cursor: pointer;
-}
-
-/* FOOTER */
 /* Footer */
 footer {
     background-color: #1B4332;
