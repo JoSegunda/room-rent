@@ -108,10 +108,11 @@ a:visited{
     margin-top: 2rem;
     padding: 1rem;
     width: 80%;
-    color: #1B4332;
+    color: #FFFF;
     font-size: 2rem;
     background-color: #1B4332;
 }
+
 /* Footer */
 footer {
     background-color: #1B4332;
