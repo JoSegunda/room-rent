@@ -330,14 +330,6 @@ input:focus, select:focus, textarea:focus {
     font-size: 0.9rem;
 }
 
-/* Character Counter */
-.char-count {
-    text-align: right;
-    color: var(--gray-color);
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
 /* Form Actions */
 .form-actions {
     display: flex;
