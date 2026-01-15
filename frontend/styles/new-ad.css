@@ -240,13 +240,7 @@ input:focus, select:focus, textarea:focus {
     color: var(--gray-color);
 }
 
-/* Checkbox and Switch Styles */
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
+
 
 /* Upload Area */
 .upload-area {
@@ -421,10 +415,6 @@ input:focus, select:focus, textarea:focus {
         font-size: 1.3rem;
     }
     
-    .checkbox-group {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
     
     .upload-area {
         padding: 2rem 1rem;

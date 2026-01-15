@@ -58,8 +58,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="distrito"><i class="fas fa-map"></i> Distrito</label>
-                        <input type="text" id="distrito" name="distrito" placeholder="Ex: Évora">
+                        <label for="freguesia"><i class="fas fa-map"></i> Freguesia</label>
+                        <input type="text" id="freguesia" name="freguesia" placeholder="Ex: Évora">
                     </div>
                     
                     <div class="form-group">
@@ -134,32 +134,6 @@
                             <option value="feminino">Feminino</option>
                             <option value="masculino">Masculino</option>
                         </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="ocupacao-procurada"><i class="fas fa-briefcase"></i> Ocupação Preferida</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-option">
-                            <input type="radio" name="ocupacao" value="estudante">
-                            
-                            <span>Estudante</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="radio" name="ocupacao" value="trabalhador">
-                            
-                            <span>Trabalhador</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="radio" name="ocupacao" value="estudante-trabalhador">
-                            
-                            <span>Estudante/Trabalhador</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="radio" name="ocupacao" value="outro">
-                           
-                            <span>Outro</span>
-                        </label>
                     </div>
                 </div>
             </section>
