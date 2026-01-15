@@ -38,8 +38,8 @@ public class Anuncio {
     private Integer quartosDisponiveis;
 
     // PERFIL 
-    private Integer idadeMin;
-    private Integer idadeMax;
+    private Integer idadeMinima;
+    private Integer idadeMaxima;
     private String genero;
 
     // IMÓVEL 
