@@ -7,7 +7,29 @@ const updateContent = () => {
 
   switch (hash) {
     case 'nav-perfil':
+      
+      break;
+    case 'nav-post':
+        const fileUrl = '../pages/add-post-form.txt';
+        fetch(fileUrl)
+            .then(r => r.text())
+            .then(t => content.innerHTML = t)
+      
+      break;
+    case 'nav-ads':
       content.innerHTML = `
+          <h1>Meus anúncios</h1>
+          <p>Get in touch with us.</p>
+        `;
+      break;
+    case 'nav-chat':
+      content.innerHTML = `
+          <h1>conversas</h1>
+          <p>Get in touch with us.</p>
+        `;
+      break;
+      default:
+        content.innerHTML = `
           <!-- Cabeçalho do Perfil -->
       <div class="profile-header">
         <div class="profile-banner"></div>
@@ -97,26 +119,7 @@ const updateContent = () => {
         </div>
       </div>
         `;
-      break;
-    case 'nav-post':
-        const fileUrl = '../pages/add-post-form.txt';
-        fetch(fileUrl)
-            .then(r => r.text())
-            .then(t => content.innerHTML = t)
-      
-      break;
-    case 'nav-ads':
-      content.innerHTML = `
-          <h1>Meus anúncios</h1>
-          <p>Get in touch with us.</p>
-        `;
-      break;
-    case 'nav-chat':
-      content.innerHTML = `
-          <h1>conversas</h1>
-          <p>Get in touch with us.</p>
-        `;
-      break;
+        break;
   }
 };
 
