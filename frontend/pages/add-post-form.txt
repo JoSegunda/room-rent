@@ -1,0 +1,261 @@
+<div class="page-header">
+            <h1> Publicar Novo Anúncio</h1>
+            <p class="subtitle">Preencha todos os campos abaixo para criar seu anúncio</p>
+        </div>
+
+        <form id="form-anuncio" class="anuncio-form">
+            <!-- Seção 1: Tipo de Anúncio -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">1</span>
+                    Tipo de Anúncio
+                </h2>
+                <div class="tipo-anuncio-container">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="tipo-anuncio" value="oferta" checked>
+                            <div class="radio-content">
+                                <i class="fas fa-home"></i>
+                                <h3>Oferta de Quarto</h3>
+                                <p>Tenho um quarto disponível para alugar</p>
+                            </div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tipo-anuncio" value="procura">
+                            <div class="radio-content">
+                                <i class="fas fa-search"></i>
+                                <h3>Procura de Quarto</h3>
+                                <p>Estou à procura de um quarto para alugar</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 2: Localização -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">2</span>
+                    Localização
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cidade"><i class="fas fa-city"></i> Cidade *</label>
+                        <select id="cidade" name="cidade" required>
+                            <option value="">Selecione a cidade</option>
+                            <option value="evora">Évora</option>
+                            <option value="lisboa">Lisboa</option>
+                            <option value="porto">Porto</option>
+                            <option value="coimbra">Coimbra</option>
+                            <option value="braga">Braga</option>
+                            <option value="faro">Faro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="endereco"><i class="fas fa-map-marker-alt"></i> Endereço Completo *</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Ex: Rua das Flores, 123" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="distrito"><i class="fas fa-map"></i> Distrito</label>
+                        <input type="text" id="distrito" name="distrito" placeholder="Ex: Évora">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="codigo-postal"><i class="fas fa-envelope"></i> Código Postal</label>
+                        <input type="text" id="codigo-postal" name="codigo-postal" placeholder="7000-000">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 3: Detalhes do Quarto -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">3</span>
+                    Detalhes do Quarto
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="preco"><i class="fas fa-euro-sign"></i> Preço Mensal (€) *</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="preco" name="preco" min="0" step="10" placeholder="250" required>
+                            <span class="input-icon">€/mês</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipologia"><i class="fas fa-building"></i> Tipologia *</label>
+                        <select id="tipologia" name="tipologia" required>
+                            <option value="">Selecione a tipologia</option>
+                            <option value="t0">T0 (Estúdio)</option>
+                            <option value="t1">T1</option>
+                            <option value="t2">T2</option>
+                            <option value="t3">T3</option>
+                            <option value="t4">T4 ou mais</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quartos-disponiveis"><i class="fas fa-door-open"></i> Quartos Disponíveis *</label>
+                        <select id="quartos-disponiveis" name="quartos-disponiveis" required>
+                            <option value="">Selecione</option>
+                            <option value="1">1 quarto</option>
+                            <option value="2">2 quartos</option>
+                            <option value="3">3 quartos</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
+            </section>
+
+            <!-- Seção 4: Perfil Procurado -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">4</span>
+                    Perfil Procurado
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="idade-min"><i class="fas fa-user-clock"></i> Idade Mínima</label>
+                        <input type="number" id="idade-min" name="idade-min" min="18" max="99" placeholder="18">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idade-max"><i class="fas fa-user-clock"></i> Idade Máxima</label>
+                        <input type="number" id="idade-max" name="idade-max" min="18" max="99" placeholder="36">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genero-procurado"><i class="fas fa-venus-mars"></i> Género Preferido</label>
+                        <select id="genero-procurado" name="genero-procurado">
+                            <option value="">Indiferente</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ocupacao-procurada"><i class="fas fa-briefcase"></i> Ocupação Preferida</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="radio" name="ocupacao" value="estudante">
+                            
+                            <span>Estudante</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="radio" name="ocupacao" value="trabalhador">
+                            
+                            <span>Trabalhador</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="radio" name="ocupacao" value="estudante-trabalhador">
+                            
+                            <span>Estudante/Trabalhador</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="radio" name="ocupacao" value="outro">
+                           
+                            <span>Outro</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 5: Características do Imóvel -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">5</span>
+                    Características do Imóvel
+                </h2>
+                
+                <div class="form-group">
+                    <label for="area-imovel"><i class="fas fa-ruler-combined"></i> Área do Imóvel (m²)</label>
+                    <input type="number" id="area-imovel" name="area-imovel" min="0" placeholder="Ex: 120">
+                </div>
+                
+                <div class="form-group">
+                    <label for="andar"><i class="fas fa-building"></i> Andar</label>
+                    <select id="andar" name="andar">
+                        <option value="">Selecione</option>
+                        <option value="rc">Rés-do-chão</option>
+                        <option value="1">1º Andar</option>
+                        <option value="2">2º Andar</option>
+                        <option value="3">3º Andar</option>
+                        <option value="4+">4º Andar ou superior</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Seção 6: Características do Quarto -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">6</span>
+                    Características do Quarto
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="area-quarto"><i class="fas fa-ruler"></i> Área do Quarto (m²)</label>
+                        <input type="number" id="area-quarto" name="area-quarto" min="0" placeholder="Ex: 15">
+                    </div>
+                    
+                </div>
+                
+               
+            </section>
+
+            <!-- Seção 7: Descrição e Fotos -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">7</span>
+                    Descrição e Fotos
+                </h2>
+                
+                <div class="form-group">
+                    <label for="titulo"><i class="fas fa-heading"></i> Título do Anúncio *</label>
+                    <input type="text" id="titulo" name="titulo" 
+                           placeholder="Ex: Quarto luminoso no centro de Évora" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao"><i class="fas fa-align-left"></i> Descrição Detalhada *</label>
+                    <textarea id="descricao" name="descricao" rows="6" required
+                              placeholder="Descreva o seu quarto, a localização, o que inclui o preço, pontos de interesse próximos..."></textarea>
+                    <div class="char-count">
+                        <span id="char-counter">0</span> / 2000 caracteres
+                    </div>
+                </div>
+                
+                <!-- Upload de Fotos -->
+                <div class="form-group">
+                    <label><i class="fas fa-images"></i> Fotos do Quarto/Imóvel *</label>
+                    <p class="help-text">Adicione pelo menos 3 fotos. A primeira foto será a capa do anúncio.</p>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <p class="help-text">ou</p>
+                        <button type="button" class="btn btn-secondary" id="btn-selecionar-fotos">
+                            <i class="fas fa-folder-open"></i> Selecionar Fotos
+                        </button>
+                        <input type="file" id="fotos" name="fotos" multiple accept="image/*" hidden>
+                    </div>
+                    
+                    <div class="preview-container" id="preview-container">
+                        <!-- As pré-visualizações das fotos serão inseridas aqui -->
+                    </div>
+                    
+                    <div class="upload-info">
+                        <p><i class="fas fa-info-circle"></i> Máximo 10 fotos • Formatos: JPG, PNG • Tamanho máximo: 5MB cada</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Botões de Submissão -->
+            <div class="form-actions">
+               
+                <button type="submit" class="btn btn-primary" id="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Publicar Anúncio
+                </button>
+            </div>
+        </form>
