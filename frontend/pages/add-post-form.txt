@@ -85,18 +85,6 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="tipologia"><i class="fas fa-building"></i> Tipologia *</label>
-                        <select id="tipologia" name="tipologia" required>
-                            <option value="">Selecione a tipologia</option>
-                            <option value="t0">T0 (Estúdio)</option>
-                            <option value="t1">T1</option>
-                            <option value="t2">T2</option>
-                            <option value="t3">T3</option>
-                            <option value="t4">T4 ou mais</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
                         <label for="quartos-disponiveis"><i class="fas fa-door-open"></i> Quartos Disponíveis *</label>
                         <select id="quartos-disponiveis" name="quartos-disponiveis" required>
                             <option value="">Selecione</option>
@@ -166,6 +154,18 @@
                         <option value="4+">4º Andar ou superior</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                        <label for="tipologia"><i class="fas fa-building"></i> Tipologia *</label>
+                        <select id="tipologia" name="tipologia" required>
+                            <option value="">Selecione a tipologia</option>
+                            <option value="t0">T0 (Estúdio)</option>
+                            <option value="t1">T1</option>
+                            <option value="t2">T2</option>
+                            <option value="t3">T3</option>
+                            <option value="t4">T4 ou mais</option>
+                        </select>
+                    </div>
             </section>
 
             <!-- Seção 7: Descrição e Fotos -->
