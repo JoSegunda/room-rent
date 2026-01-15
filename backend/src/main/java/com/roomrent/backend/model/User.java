@@ -39,7 +39,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Advertisement> advertisements = new HashSet<>();
+    private Set<Anuncio> anuncios = new HashSet<>();
 
     @PrePersist
     protected void onCreate() {
@@ -83,8 +83,8 @@ public class User {
     public LocalDateTime getUpdatedAt() {return updatedAt;}
     public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
 
-    public Set<Advertisement> getAdvertisements() {return advertisements;}
-    public void setAdvertisements(Set<Advertisement> advertisements) {this.advertisements = advertisements;}
+    public Set<Anuncio> getAnuncios() {return anuncios;}
+    public void setAnuncios(Set<Anuncio> anuncios) {this.anuncios = anuncios;}
     
     
 
