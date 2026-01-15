@@ -179,12 +179,6 @@
     color: var(--gray-color);
 }
 
-.ad-meta span {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
 
 
 /* Responsividade */
@@ -195,21 +189,11 @@
         gap: 1.5rem;
     }
     
-    .profile-actions {
-        width: 100%;
-        justify-content: center;
-    }
-    
     .avatar-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
-    
-    
-    .about-details,
-    .preferences-grid,
     .ads-grid,
     .verification-grid {
         grid-template-columns: 1fr;
@@ -217,24 +201,5 @@
     
     .content-section {
         padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-name {
-        font-size: 2rem;
-    }
-    
-    .profile-badges {
-        justify-content: center;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .profile-actions {
-        flex-direction: column;
     }
 }
