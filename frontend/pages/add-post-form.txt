@@ -105,6 +105,11 @@
                             <option value="3">3 quartos</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="area-quarto"><i class="fas fa-ruler"></i> Área do Quarto (m²)</label>
+                        <input type="number" id="area-quarto" name="area-quarto" min="0" placeholder="Ex: 15">
+                    </div>
                 </div>
                 
                 
@@ -163,27 +168,10 @@
                 </div>
             </section>
 
-            <!-- Seção 6: Características do Quarto -->
-            <section class="form-section">
-                <h2 class="section-title">
-                    <span class="step-number">6</span>
-                    Características do Quarto
-                </h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="area-quarto"><i class="fas fa-ruler"></i> Área do Quarto (m²)</label>
-                        <input type="number" id="area-quarto" name="area-quarto" min="0" placeholder="Ex: 15">
-                    </div>
-                    
-                </div>
-                
-               
-            </section>
-
             <!-- Seção 7: Descrição e Fotos -->
             <section class="form-section">
                 <h2 class="section-title">
-                    <span class="step-number">7</span>
+                    <span class="step-number">6</span>
                     Descrição e Fotos
                 </h2>
                 

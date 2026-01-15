@@ -6,9 +6,6 @@ const updateContent = () => {
   const hash = window.location.hash.substring(1); // Remove the '#' from the hash
 
   switch (hash) {
-    case 'nav-perfil':
-      
-      break;
     case 'nav-post':
         const fileUrl = '../pages/add-post-form.txt';
         fetch(fileUrl)
