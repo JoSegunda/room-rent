@@ -28,26 +28,26 @@ public class Anuncio {
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
-    // ===== LOCALIZAÇÃO =====
+    // LOCALIZAÇÃO 
     private String cidade;
     private String enderecoCompleto;
     private String codigoPostal;
 
-    // ===== QUARTO =====
+    //  QUARTO 
     private Double preco;
     private Integer quartosDisponiveis;
 
-    // ===== PERFIL =====
-    private Integer idadeMinima;
-    private Integer idadeMaxima;
+    // PERFIL 
+    private Integer idadeMin;
+    private Integer idadeMax;
     private String genero;
 
-    // ===== IMÓVEL =====
+    // IMÓVEL 
     private Double areaImovel;
     private String tipologia;
     private Integer andar;
 
-    // ===== DESCRIÇÃO =====
+    // DESCRIÇÃO 
     private String titulo;
 
     @Column(length = 2000)
