@@ -122,3 +122,4 @@ const updateContent = () => {
 
 // Event listener for hashchange
 window.addEventListener('hashchange', updateContent);
+window.addEventListener('load', updateContent);
