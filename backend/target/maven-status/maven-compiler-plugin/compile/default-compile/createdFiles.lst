@@ -1,0 +1,10 @@
+com/roomrent/backend/config/CorsConfig$1.class
+com/roomrent/backend/model/User.class
+com/roomrent/backend/controller/UserController.class
+com/roomrent/backend/controller/HomeController.class
+com/roomrent/backend/service/UserService.class
+com/roomrent/backend/BackendApplication.class
+com/roomrent/backend/repository/UserRepository.class
+AnuncioRepository.class
+com/roomrent/backend/model/Anuncio.class
+com/roomrent/backend/config/CorsConfig.class

@@ -24,6 +24,10 @@ public class Anuncio {
     // futuramente virá do user autenticado
     private Long userId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User user;
+
     // ===== LOCALIZAÇÃO =====
     private String cidade;
     private String enderecoCompleto;
