@@ -1,24 +1,38 @@
 const adsContainer = document.getElementById('ads-list');
 let currentPage = 0;
 
+// Função principal de carga
 async function carregarAnuncios(page = 0) {
-    try {
-        const response = await fetch(`http://localhost:8080/api/anuncios/paginado?page=${page}&size=4`);
-        
-        if (!response.ok) throw new Error("Erro na API: " + response.status);
+    // 1. Capturar valores atuais dos filtros
+    const tipo = document.getElementById('filter-ad').value;
+    const search = document.getElementById('search-name').value;
+    const sort = document.getElementById('filter-options').value;
 
+    // 2. Construir a URL com filtros
+    const url = new URL('http://localhost:8080/api/anuncios/paginado');
+    url.searchParams.append('page', page);
+    url.searchParams.append('size', 4);
+    if (tipo) url.searchParams.append('tipo', tipo);
+    if (search) url.searchParams.append('search', search);
+    if (sort) url.searchParams.append('sort', sort);
+
+    try {
+        const response = await fetch(url);
         const data = await response.json();
-        
-        // Verifica se data e data.content existem antes de usar
-        if (data && data.content) {
-            renderizarAnuncios(data.content);
-            renderizarPaginacao(data.totalPages, data.number);
-        }
+
+        renderizarAnuncios(data.content);
+        renderizarPaginacao(data.totalPages, data.number);
     } catch (error) {
-        console.error("Erro ao carregar anúncios:", error);
-        document.getElementById('ads-list').innerHTML = "<p>Erro ao carregar os anúncios. Verifica se o backend está ligado.</p>";
+        console.error("Erro ao filtrar:", error);
     }
 }
+
+// Ouvir mudanças no formulário
+filterForm.addEventListener('change', () => carregarAnuncios(0));
+document.getElementById('search-name').addEventListener('input', () => {
+    // Debounce opcional: esperar o utilizador parar de digitar
+    carregarAnuncios(0); 
+});
 
 function renderizarAnuncios(anuncios) {
     adsContainer.innerHTML = ''; // Limpa os anúncios antigos

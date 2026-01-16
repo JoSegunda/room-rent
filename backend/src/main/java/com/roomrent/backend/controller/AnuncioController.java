@@ -41,18 +41,29 @@ public class AnuncioController {
     }
 
     @GetMapping("/paginado")
-    public Page<Anuncio> listarPaginado(
+public Page<Anuncio> listarPaginado(
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "4") int size) {
-    
-    // Retorna os anúncios ordenados pelo ID mais recente, 4 por página
-    return anuncioRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
-    }
+        @RequestParam(defaultValue = "4") int size,
+        @RequestParam(required = false) String tipo,
+        @RequestParam(required = false) String search,
+        @RequestParam(defaultValue = "recentes") String sort) {
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Anuncio> obterPorId(@PathVariable Long id) {
-        return anuncioRepository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
+    // Lógica de Ordenação
+    Sort sorting = switch (sort) {
+        case "baratos" -> Sort.by("preco").ascending();
+        case "caro" -> Sort.by("preco").descending();
+        case "tamanho" -> Sort.by("area").descending();
+        default -> Sort.by("id").descending();
+    };
+
+    Pageable pageable = PageRequest.of(page, size, sorting);
+    
+    // Se "tipo" vier vazio do front, tratamos como null
+    String tipoFiltro = (tipo != null && !tipo.isEmpty()) ? tipo : null;
+    String searchFiltro = (search != null && !search.isEmpty()) ? search : null;
+
+    return anuncioRepository.findFiltered(tipoFiltro, searchFiltro, pageable);
+}
 
     
 }
