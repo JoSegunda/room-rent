@@ -1,29 +1,17 @@
-package com.roomrent.backend.controller;
-
-import com.roomrent.backend.model.Anuncio;
-import com.roomrent.backend.service.AnuncioService;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/anuncios")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") // Permite pedidos de qualquer origem
 public class AnuncioController {
 
-    private final AnuncioService service;
+    private final AnuncioRepository anuncioRepository;
 
-    public AnuncioController(AnuncioService service) {
-        this.service = service;
-    }
-
-    @GetMapping
-    public List<Anuncio> listar() {
-        return service.listarTodos();
+    public AnuncioController(AnuncioRepository anuncioRepository) {
+        this.anuncioRepository = anuncioRepository;
     }
 
     @PostMapping
-    public Anuncio criar(@RequestBody Anuncio anuncio) {
-        return service.salvar(anuncio);
+    public ResponseEntity<Anuncio> criarAnuncio(@RequestBody Anuncio anuncio) {
+        Anuncio salvo = anuncioRepository.save(anuncio);
+        return ResponseEntity.ok(salvo);
     }
 }

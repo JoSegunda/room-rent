@@ -17,14 +17,13 @@ public class AnuncioRequestDTO {
     private Double preco;
     private Integer quartosDisponiveis;
 
-    private Integer idadeMinima;
-    private Integer idadeMaxima;
-    private String genero;
+    private Integer idadeMin;
+    private Integer idadeMax;
+    private String generoProcurado;
 
     private Double areaImovel;
     private String tipologia;
     private Integer andar;
 
     private String titulo;
-    private String descricao;
 }

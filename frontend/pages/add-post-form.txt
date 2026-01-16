@@ -159,44 +159,6 @@
                     </div>
             </section>
 
-            <!-- Seção 7: Descrição e Fotos -->
-            <section class="form-section">
-                <h2 class="section-title">
-                    <span class="step-number">6</span>
-                    Descrição e Fotos
-                </h2>
-                
-                <div class="form-group">
-                    <label for="titulo"><i class="fas fa-heading"></i> Título do Anúncio *</label>
-                    <input type="text" id="titulo" name="titulo" 
-                           placeholder="Ex: Quarto luminoso no centro de Évora" required>
-                </div>
-                
-               
-                
-                <!-- Upload de Fotos -->
-                <div class="form-group">
-                    <label><i class="fas fa-images"></i> Fotos do Quarto/Imóvel *</label>
-                    <p class="help-text">Adicione pelo menos 3 fotos. A primeira foto será a capa do anúncio.</p>
-                    
-                    <div class="upload-area" id="upload-area">
-                        <p class="help-text">ou</p>
-                        <button type="button" class="btn btn-secondary" id="btn-selecionar-fotos">
-                            <i class="fas fa-folder-open"></i> Selecionar Fotos
-                        </button>
-                        <input type="file" id="fotos" name="fotos" multiple accept="image/*" hidden>
-                    </div>
-                    
-                    <div class="preview-container" id="preview-container">
-                        <!-- As pré-visualizações das fotos serão inseridas aqui -->
-                    </div>
-                    
-                    <div class="upload-info">
-                        <p><i class="fas fa-info-circle"></i> Máximo 10 fotos • Formatos: JPG, PNG • Tamanho máximo: 5MB cada</p>
-                    </div>
-                </div>
-            </section>
-
             <!-- Botões de Submissão -->
             <div class="form-actions">
                
