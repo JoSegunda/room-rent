@@ -5,6 +5,12 @@ import com.roomrent.backend.repository.AnuncioRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// Para pagination
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+
 import java.util.List;
 
 @RestController
@@ -32,6 +38,15 @@ public class AnuncioController {
             e.printStackTrace(); // Isto vai mostrar o erro exato no terminal se falhar
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping("/paginado")
+    public Page<Anuncio> listarPaginado(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "4") int size) {
+    
+    // Retorna os anúncios ordenados pelo ID mais recente, 4 por página
+    return anuncioRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
     }
 
     
