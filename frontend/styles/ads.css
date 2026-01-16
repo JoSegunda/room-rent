@@ -125,6 +125,12 @@ h1::after {
   text-decoration: none;
   transition: var(--transition);
 }
+.ad-img-all {
+    width: 200px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
 
 .ad-content h3 a:hover {
   color: var(--accent-color);
