@@ -1,3 +1,24 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const adsContainer = document.getElementById('ads-list');
+    const filterForm = document.getElementById('filter-form');
+    const searchInput = document.getElementById('search-name');
+
+    if (!filterForm || !adsContainer) {
+        console.error("Erro: Elementos do DOM não encontrados.");
+        return;
+    }
+
+    // Iniciar a carga
+    carregarAnuncios(0);
+
+    // Ouvir mudanças
+    filterForm.addEventListener('change', () => carregarAnuncios(0));
+    if (searchInput) {
+        searchInput.addEventListener('input', () => carregarAnuncios(0));
+    }
+});
+
+
 const adsContainer = document.getElementById('ads-list');
 let currentPage = 0;
 
