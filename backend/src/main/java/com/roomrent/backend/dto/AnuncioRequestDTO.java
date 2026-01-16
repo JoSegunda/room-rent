@@ -21,7 +21,7 @@ public class AnuncioRequestDTO {
     private Integer idadeMax;
     private String generoProcurado;
 
-    private Double areaImovel;
+    private Double area;
     private String tipologia;
     private Integer andar;
 

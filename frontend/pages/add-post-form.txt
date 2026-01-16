@@ -159,6 +159,19 @@
                     </div>
             </section>
 
+            <!-- Seção 7: Descrição e Fotos -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    <span class="step-number">6</span>
+                    Descrição
+                </h2>
+                
+                <div class="form-group">
+                    <label for="titulo"><i class="fas fa-heading"></i> Título do Anúncio *</label>
+                    <input type="text" id="titulo" name="titulo" 
+                           placeholder="Ex: Quarto luminoso no centro de Évora" required>
+                </div>
+
             <!-- Botões de Submissão -->
             <div class="form-actions">
                
