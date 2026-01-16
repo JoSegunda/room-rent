@@ -49,5 +49,10 @@ public class AnuncioController {
     return anuncioRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Anuncio> obterPorId(@PathVariable Long id) {
+        return anuncioRepository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
     
 }
