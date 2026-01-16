@@ -24,7 +24,8 @@ section {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  width: 90%;
+  width: 100%;
+  max-width: 200rem;
 }
 
 .ad-info h3 {
@@ -59,6 +60,7 @@ hr {
 .more-ad-info {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
   margin-top: 30px;
   width: 100%;
@@ -122,8 +124,9 @@ section{
   border-radius: 12px;
   text-align: center;
   margin-top: 40px;
-  width: 90%;
+  width: 70%;
   cursor: pointer;
+  margin: auto;
 }
 
 .contact-ad h5 {
@@ -158,18 +161,24 @@ section{
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .contact-ad{
+    width: 100%;
+  }
 
   .more-ad-info {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
   .img-slider {
     height: 250px;
+    width: 100%;
   }
 
   .ad-info {
-    padding: 20px;
+    padding: 1rem;
+    width: 90%;
   }
 }
 
@@ -185,6 +194,8 @@ section{
 
 .img-slider {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-  background-size: 400px 100%;
+  background-size: 200px 100%;
   animation: shimmer 3s infinite linear;
+  height: 50vh;
+  width: 100%;
 }
