@@ -1,95 +1,99 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Capturar os elementos do HTML
     const adsContainer = document.getElementById('ads-list');
     const filterForm = document.getElementById('filter-form');
     const searchInput = document.getElementById('search-name');
+    const paginationContainer = document.querySelector('.pagination');
 
-    if (!filterForm || !adsContainer) {
-        console.error("Erro: Elementos do DOM não encontrados.");
+    if (!adsContainer) {
+        console.error("Contentor 'ads-list' não encontrado!");
         return;
     }
 
-    // Iniciar a carga
-    carregarAnuncios(0);
+    // 2. Função para carregar anúncios
+    async function carregarAnuncios(page = 0) {
+        const tipo = document.getElementById('filter-ad')?.value || "";
+        const search = document.getElementById('search-name')?.value || "";
+        const sort = document.getElementById('filter-options')?.value || "";
 
-    // Ouvir mudanças
-    filterForm.addEventListener('change', () => carregarAnuncios(0));
-    if (searchInput) {
-        searchInput.addEventListener('input', () => carregarAnuncios(0));
+        const url = new URL('http://localhost:8080/api/anuncios/paginado');
+        url.searchParams.append('page', page);
+        url.searchParams.append('size', 4);
+        if (tipo) url.searchParams.append('tipo', tipo);
+        if (search) url.searchParams.append('search', search);
+        if (sort) url.searchParams.append('sort', sort);
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Erro no servidor (500)");
+
+            const data = await response.json();
+            
+            if (data && data.content) {
+                renderizarAnuncios(data.content);
+                renderizarPaginacao(data.totalPages, data.number);
+            }
+        } catch (error) {
+            console.error("Erro ao carregar anúncios:", error);
+            adsContainer.innerHTML = `<p style="color:red">Erro ao ligar ao servidor. Verifique se o Backend está a correr.</p>`;
+        }
     }
-});
 
+    // 3. Função para renderizar os cards
+    function renderizarAnuncios(anuncios) {
+        adsContainer.innerHTML = ''; 
+        if (anuncios.length === 0) {
+            adsContainer.innerHTML = '<p>Nenhum anúncio encontrado.</p>';
+            return;
+        }
 
-const adsContainer = document.getElementById('ads-list');
-let currentPage = 0;
-
-// Função principal de carga
-async function carregarAnuncios(page = 0) {
-    // 1. Capturar valores atuais dos filtros
-    const tipo = document.getElementById('filter-ad').value;
-    const search = document.getElementById('search-name').value;
-    const sort = document.getElementById('filter-options').value;
-
-    // 2. Construir a URL com filtros
-    const url = new URL('http://localhost:8080/api/anuncios/paginado');
-    url.searchParams.append('page', page);
-    url.searchParams.append('size', 4);
-    if (tipo) url.searchParams.append('tipo', tipo);
-    if (search) url.searchParams.append('search', search);
-    if (sort) url.searchParams.append('sort', sort);
-
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        renderizarAnuncios(data.content);
-        renderizarPaginacao(data.totalPages, data.number);
-    } catch (error) {
-        console.error("Erro ao filtrar:", error);
-    }
-}
-
-// Ouvir mudanças no formulário
-filterForm.addEventListener('change', () => carregarAnuncios(0));
-document.getElementById('search-name').addEventListener('input', () => {
-    // Debounce opcional: esperar o utilizador parar de digitar
-    carregarAnuncios(0); 
-});
-
-function renderizarAnuncios(anuncios) {
-    adsContainer.innerHTML = ''; // Limpa os anúncios antigos
-
-    anuncios.forEach(ad => {
-        const adHtml = `
-            <div class="ad-wrapper">
-                <div class="ad-img-all" style="background-image: url('${ad.fotoUrl || '../media/default-room.jpg'}')"></div>
-                <div class="ad-content">
-                    <h3><a href="ad-info.html?id=${ad.id}">${ad.titulo}</a></h3>
-                    <h4>${ad.preco} €/mês</h4>
-                    <h3 id="autor-anuncio">Localização: ${ad.cidade}</h3>
-                    <div class="extra-ad-info">
-                        <p><i class="fas fa-bed"></i> ${ad.quartosDisponiveis} quartos</p>
-                        <p><i class="fas fa-venus-mars"></i> ${ad.generoProcurado || 'Indiferente'}</p>
-                        <p><i class="fas fa-house"></i> ${ad.tipologia}</p>
+        anuncios.forEach(ad => {
+            const adHtml = `
+                <div class="ad-wrapper">
+                    <div class="ad-img-all" style="background-image: url('${ad.fotoUrl || '../media/default-room.jpg'}'); height: 180px; background-size: cover;"></div>
+                    <div class="ad-content">
+                        <h3><a href="ad-info.html?id=${ad.id}">${ad.titulo}</a></h3>
+                        <h4>${ad.preco} €/mês</h4>
+                        <p><strong>Cidade:</strong> ${ad.cidade}</p>
+                        <div class="extra-ad-info">
+                            <p><i class="fas fa-bed"></i> ${ad.quartosDisponiveis || 1} quartos</p>
+                            <p><i class="fas fa-venus-mars"></i> ${ad.generoProcurado || 'Indiferente'}</p>
+                            <p><i class="fas fa-house"></i> ${ad.tipologia}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-        adsContainer.insertAdjacentHTML('beforeend', adHtml);
-    });
-}
-
-function renderizarPaginacao(totalPaginas, paginaAtual) {
-    const paginationContainer = document.querySelector('.pagination');
-    paginationContainer.innerHTML = '';
-
-    for (let i = 0; i < totalPaginas; i++) {
-        const btn = document.createElement('button');
-        btn.innerText = i + 1;
-        btn.className = `page-btn ${i === paginaAtual ? 'active' : ''}`;
-        btn.onclick = () => carregarAnuncios(i);
-        paginationContainer.appendChild(btn);
+            `;
+            adsContainer.insertAdjacentHTML('beforeend', adHtml);
+        });
     }
-}
 
-// Iniciar a primeira carga
-carregarAnuncios(0);
+    // 4. Função para renderizar a paginação
+    function renderizarPaginacao(totalPaginas, paginaAtual) {
+        if (!paginationContainer) return;
+        paginationContainer.innerHTML = '';
+
+        for (let i = 0; i < totalPaginas; i++) {
+            const btn = document.createElement('button');
+            btn.innerText = i + 1;
+            btn.className = `page-btn ${i === paginaAtual ? 'active' : ''}`;
+            btn.onclick = () => carregarAnuncios(i);
+            paginationContainer.appendChild(btn);
+        }
+    }
+
+    // 5. Ativar os Listeners (Filtros)
+    if (filterForm) {
+        filterForm.addEventListener('change', () => carregarAnuncios(0));
+    }
+
+    if (searchInput) {
+        let timer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => carregarAnuncios(0), 500);
+        });
+    }
+
+    // 6. Carga inicial
+    carregarAnuncios(0);
+});
