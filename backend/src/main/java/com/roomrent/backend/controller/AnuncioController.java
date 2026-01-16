@@ -1,11 +1,10 @@
 package com.roomrent.backend.controller;
 
-import com.roomrent.backend.dto.AnuncioRequestDTO;
 import com.roomrent.backend.model.Anuncio;
 import com.roomrent.backend.service.AnuncioService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/anuncios")
@@ -18,12 +17,13 @@ public class AnuncioController {
         this.service = service;
     }
 
-    @PostMapping(consumes = "multipart/form-data")
-    public ResponseEntity<Anuncio> criarAnuncio(
-            @RequestPart("dados") AnuncioRequestDTO dto,
-            @RequestPart(value = "fotos", required = false) MultipartFile[] fotos
-    ) throws Exception {
+    @GetMapping
+    public List<Anuncio> listar() {
+        return service.listarTodos();
+    }
 
-        return ResponseEntity.ok(service.criarAnuncio(dto, fotos));
+    @PostMapping
+    public Anuncio criar(@RequestBody Anuncio anuncio) {
+        return service.salvar(anuncio);
     }
 }

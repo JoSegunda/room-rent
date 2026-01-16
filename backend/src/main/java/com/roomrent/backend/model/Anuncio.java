@@ -1,61 +1,45 @@
 package com.roomrent.backend.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "anuncios")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Anuncio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // procura ou oferta
-    @Column(nullable = false)
-    private String tipoAnuncio;
+    private String tipo; // PROCURA ou OFERTA
 
-    // futuramente virá do user autenticado
-    private Long userId;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private User user;
-
-    // LOCALIZAÇÃO 
     private String cidade;
-    private String enderecoCompleto;
+    private String endereco;
     private String codigoPostal;
 
-    //  QUARTO 
     private Double preco;
     private Integer quartosDisponiveis;
 
-    // PERFIL 
-    private Integer idadeMinima;
-    private Integer idadeMaxima;
+    private Integer idadeMin;
+    private Integer idadeMax;
     private String genero;
 
-    // IMÓVEL 
-    private Double areaImovel;
+    private Double area;
     private String tipologia;
     private Integer andar;
 
-    // DESCRIÇÃO 
     private String titulo;
 
-    @Column(length = 2000)
-    private String descricao;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    // Caminhos das fotos
-    @ElementCollection
-    @CollectionTable(name = "anuncio_fotos", joinColumns = @JoinColumn(name = "anuncio_id"))
-    @Column(name = "foto_path")
-    private List<String> fotos;
+    // getters e setters
+    public Long getId() { return id; }
+    public String getTipo() { return tipo; }
+    public String getTitulo() { return titulo; }
+    public User getUser() { return user; }
+
+    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public void setUser(User user) { this.user = user; }
 }
