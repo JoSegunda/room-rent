@@ -5,8 +5,9 @@ fetch("http://localhost:8080/api/hello")
   });
 
   //Register form
-
-  document.getElementById("registerForm").addEventListener("submit", function(e) {
+  const form = document.getElementById('form-anuncio');
+  if(form){
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const user = {
@@ -32,3 +33,5 @@ fetch("http://localhost:8080/api/hello")
   })
   .catch(err => alert(err.message));
 });
+  }
+  

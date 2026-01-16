@@ -4,12 +4,19 @@ let currentPage = 0;
 async function carregarAnuncios(page = 0) {
     try {
         const response = await fetch(`http://localhost:8080/api/anuncios/paginado?page=${page}&size=4`);
-        const data = await response.json(); // Aqui recebemos o objeto Page do Spring
+        
+        if (!response.ok) throw new Error("Erro na API: " + response.status);
 
-        renderizarAnuncios(data.content);
-        renderizarPaginacao(data.totalPages, data.number);
+        const data = await response.json();
+        
+        // Verifica se data e data.content existem antes de usar
+        if (data && data.content) {
+            renderizarAnuncios(data.content);
+            renderizarPaginacao(data.totalPages, data.number);
+        }
     } catch (error) {
         console.error("Erro ao carregar anúncios:", error);
+        document.getElementById('ads-list').innerHTML = "<p>Erro ao carregar os anúncios. Verifica se o backend está ligado.</p>";
     }
 }
 
