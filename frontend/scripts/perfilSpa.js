@@ -56,69 +56,73 @@ const updateContent = () => {
       </div>
 
       <div class="profile-content">
-        <!-- Conteúdo Principal -->
         <div class="profile-main-content">
-          <!-- Sobre Mim -->
-          
-
-          <!-- Meus Anúncios Recentes -->
           <section class="content-section">
             <div class="section-header">
               <h2><i class="fas fa-home"></i> Meus Anúncios Recentes</h2>
             </div>
-            <div class="ads-grid">
-              <div class="ad-card">
-                <div
-                  class="ad-image"
-                  style="background-image: url('../media/room.jpg')"
-                >
-                  <span class="ad-status active">Ativo</span>
-                </div>
-                <div class="ad-content">
-                  <h3>Quarto luminoso no centro de Évora</h3>
-                  <p class="ad-location">
-                    <i class="fas fa-map-marker-alt"></i> Centro Histórico,
-                    Évora
-                  </p>
-                  <p class="ad-price">250€ <span>/mês</span></p>
-                  <div class="ad-meta">
-                    <span><i class="fas fa-bed"></i> T3</span>
-                    <span><i class="fas fa-ruler-combined"></i> 15 m²</span>
-                    <span
-                      ><i class="fas fa-calendar"></i> Disponível agora</span
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="ad-card">
-                <div
-                  class="ad-image"
-                  style="background-image: url('../media/room.jpg')"
-                >
-                  <span class="ad-status rented">Alugado</span>
-                </div>
-                <div class="ad-content">
-                  <h3>Apartamento T2 perto da Universidade</h3>
-                  <p class="ad-location">
-                    <i class="fas fa-map-marker-alt"></i> Bacelo, Évora
-                  </p>
-                  <p class="ad-price">350€ <span>/mês</span></p>
-                  <div class="ad-meta">
-                    <span><i class="fas fa-bed"></i> T2</span>
-                    <span><i class="fas fa-ruler-combined"></i> 65 m²</span>
-                    <span><i class="fas fa-calendar"></i> Dez 2023</span>
-                  </div>
-                </div>
-              </div>
+            <div class="ads-grid" id="meus-anuncios-lista">
+              <p>A carregar os teus anúncios...</p>
             </div>
           </section>
         </div>
       </div>
         `;
-        break;
+        // CHAMADA PARA CARREGAR OS DADOS LOGO APÓS CRIAR O HTML
+      carregarMeusAnuncios(user.id);
+      break;
+      
   }
 };
+
+// Função para procurar anúncios do utilizador no Backend
+async function carregarMeusAnuncios(userId) {
+    const listaContainer = document.getElementById('meus-anuncios-lista');
+    if (!listaContainer) return;
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/anuncios/meus-anuncios/${userId}`);
+        if (!response.ok) throw new Error("Erro ao procurar anúncios");
+        
+        const anuncios = await response.json();
+        renderizarMeusAnuncios(anuncios, listaContainer);
+    } catch (error) {
+        console.error("Erro:", error);
+        listaContainer.innerHTML = "<p>Erro ao carregar os teus anúncios.</p>";
+    }
+}
+
+// Função para gerar o HTML dinâmico
+function renderizarMeusAnuncios(anuncios, container) {
+    container.innerHTML = ''; // Limpa o carregando...
+
+    if (anuncios.length === 0) {
+        container.innerHTML = '<p>Ainda não publicaste nenhum anúncio.</p>';
+        return;
+    }
+
+    anuncios.forEach(ad => {
+        const card = `
+            <div class="ad-card">
+                <div class="ad-image" style="background-image: url('${ad.fotoUrl || '../media/room.jpg'}')">
+                    <span class="ad-status active">Ativo</span>
+                </div>
+                <div class="ad-content">
+                    <h3>${ad.titulo}</h3>
+                    <p class="ad-location">
+                        <i class="fas fa-map-marker-alt"></i> ${ad.cidade}
+                    </p>
+                    <p class="ad-price">${ad.preco}€ <span>/mês</span></p>
+                    <div class="ad-meta">
+                        <span><i class="fas fa-bed"></i> ${ad.tipologia}</span>
+                        <span><i class="fas fa-ruler-combined"></i> ${ad.area || '--'} m²</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', card);
+    });
+}
 
 // Event listener for hashchange
 window.addEventListener('hashchange', updateContent);

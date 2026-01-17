@@ -46,7 +46,7 @@ function verificarSessao() {
     if (user && navList) {
         // Substitui Login/Registo pelo nome e Logout
         navList.innerHTML = `
-            <li class="nav-item">Olá, ${user.nome}</li>
+            <li class="nav-item" id="greetings">Olá,<a href="../frontend/pages/perfil.html"> ${user.nome}</a></li>
             <li class="nav-item"><button class="btn" id="logout-btn">Sair</button></li>
         `;
 

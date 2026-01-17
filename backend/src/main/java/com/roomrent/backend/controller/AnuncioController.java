@@ -78,4 +78,11 @@ public class AnuncioController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/{id}") // O {id} aqui mapeia para a variável abaixo
+    public ResponseEntity<Anuncio> obterPorId(@PathVariable Long id) {
+        return anuncioRepository.findById(id)
+                .map(ResponseEntity::ok) // Se encontrar, devolve 200 OK com o anúncio
+                .orElse(ResponseEntity.notFound().build()); // Se não encontrar, devolve 404
+    }
 }

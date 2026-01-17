@@ -20,6 +20,9 @@
     width: 7rem;
     background-color: rgb(194, 44, 44);
 }
+#greetings{
+    color: #FFF;
+}
 
 /* Header */
 header{

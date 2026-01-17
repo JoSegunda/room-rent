@@ -15,7 +15,7 @@ function atualizarMenuNavegacao() {
         document.getElementById('logout-link').addEventListener('click', (e) => {
             e.preventDefault();
             localStorage.removeItem('usuarioLogado');
-            window.location.href = '../index.html';
+            window.location.href = '../pages/index.html';
         });
     } else {
         // Se NÃO estiver autenticado, mostra Login e Registo

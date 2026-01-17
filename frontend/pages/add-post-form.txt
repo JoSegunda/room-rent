@@ -13,7 +13,7 @@
                 <div class="tipo-anuncio-container">
                     <div class="radio-group">
                         <label class="radio-option">
-                            <input type="radio" name="tipo-anuncio" value="oferta" checked>
+                            <input type="radio" name="tipoAnuncio" value="oferta" checked>
                             <div class="radio-content">
                                 <i class="fas fa-home"></i>
                                 <h3>Oferta de Quarto</h3>
@@ -21,7 +21,7 @@
                             </div>
                         </label>
                         <label class="radio-option">
-                            <input type="radio" name="tipo-anuncio" value="procura">
+                            <input type="radio" name="tipoAnuncio" value="procura">
                             <div class="radio-content">
                                 <i class="fas fa-search"></i>
                                 <h3>Procura de Quarto</h3>
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <label for="preco"><i class="fas fa-euro-sign"></i> Preço Mensal (€) *</label>
                         <div class="input-with-icon">
-                            <input type="number" id="preco" name="preco" min="0" step="10" placeholder="250" required>
+                            <input type="number" id="preco" name="preco" min="0"  placeholder="250" required>
                             <span class="input-icon">€/mês</span>
                         </div>
                     </div>
