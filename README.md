@@ -3,7 +3,6 @@ Room-Rent - Sistema de Aluguer de Quartos
 
 O **Room-Rent** é uma plataforma _full-stack_ desenvolvida para facilitar a ligação entre proprietários de imóveis e indivíduos à procura de alojamento. O sistema permite a publicação, gestão e procura de quartos, contando com um fluxo rigoroso de moderação administrativa para garantir a segurança dos utilizadores.
 
-+4
 
 🚀 Funcionalidades Principais
 -----------------------------
