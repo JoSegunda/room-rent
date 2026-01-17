@@ -108,7 +108,7 @@ function renderizarMeusAnuncios(anuncios, container) {
                     <span class="ad-status active">Ativo</span>
                 </div>
                 <div class="ad-content">
-                    <h3>${ad.titulo}</h3>
+                    <h3><a href="ad-info.html?id=${ad.id}">${ad.titulo}</a></h3>
                     <p class="ad-location">
                         <i class="fas fa-map-marker-alt"></i> ${ad.cidade}
                     </p>

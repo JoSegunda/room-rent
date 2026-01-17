@@ -26,7 +26,7 @@ public class Anuncio {
 
     private Double area;
     private String tipologia;
-    private Integer andar;
+    private String andar;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -136,11 +136,11 @@ public class Anuncio {
         this.tipologia = tipologia;
     }
 
-    public Integer getAndar() {
+    public String getAndar() {
         return andar;
     }
 
-    public void setAndar(Integer andar) {
+    public void setAndar(String andar) {
         this.andar = andar;
     }
 

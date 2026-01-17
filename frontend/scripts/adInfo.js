@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const lookingForList = document.querySelector('.looking-for ul');
         if (lookingForList) {
             lookingForList.innerHTML = `
-                <li><strong>Género:</strong> ${ad.generoProcurado || 'Indiferente'}</li>
-                <li><strong>Idade:</strong> ${ad.idadeMinima || 18} - ${ad.idadeMaxima || 99} anos</li>
+                <li><strong>Género: </strong> ${ad.generoProcurado || 'Indiferente'}</li>
+                <li><strong>Idade: </strong> ${ad.idadeMinima || 18} - ${ad.idadeMaxima || 99} anos</li>
             `;
         }
 
