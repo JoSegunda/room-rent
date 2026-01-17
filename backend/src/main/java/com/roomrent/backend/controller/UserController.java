@@ -41,6 +41,14 @@ public class UserController {
     // Endpoint de Login (POST para os dados não aparecerem na URL)
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
+
+        if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+            if (!user.isAprovado()) {
+                return ResponseEntity.status(403).body("A sua conta ainda aguarda aprovação do administrador.");
+            }
+            user.setPassword(null);
+            return ResponseEntity.ok(user);
+        }
         return userRepository.findByEmail(loginRequest.getEmail())
             .map(user -> {
                 if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
