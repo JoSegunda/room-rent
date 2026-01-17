@@ -1,5 +1,5 @@
 document.addEventListener('submit', async (e) => {
-    // Agora o ID coincide com o formulário no HTML
+    // coincidir ID com o formulário no HTML
     if (e.target.id === 'login-form') {
         e.preventDefault();
         

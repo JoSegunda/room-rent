@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Capturar os elementos do HTML
+    // Capturar os elementos do HTML
     const adsContainer = document.getElementById('ads-list');
     const filterForm = document.getElementById('filter-form');
     const searchInput = document.getElementById('search-name');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 2. Função para carregar anúncios
+    // Função para carregar anúncios
     async function carregarAnuncios(page = 0) {
         const tipo = document.getElementById('filter-ad')?.value || "";
         const search = document.getElementById('search-name')?.value || "";
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. Função para renderizar os cards
+    // Função para renderizar os cards
     function renderizarAnuncios(anuncios) {
         adsContainer.innerHTML = ''; 
         if (anuncios.length === 0) {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Função para renderizar a paginação
+    // Função para renderizar a paginação
     function renderizarPaginacao(totalPaginas, paginaAtual) {
         if (!paginationContainer) return;
         paginationContainer.innerHTML = '';
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 5. Ativar os Listeners (Filtros)
+    // Ativar os Filtros
     if (filterForm) {
         filterForm.addEventListener('change', () => carregarAnuncios(0));
     }
@@ -93,6 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Carga inicial
+    // Carga inicial
     carregarAnuncios(0);
 });

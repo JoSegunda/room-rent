@@ -11,8 +11,6 @@ import java.util.List;
 
 @Repository
 public interface AnuncioRepository extends JpaRepository<Anuncio, Long> {
-
-    // MODIFICAÇÃO: Adicionada a verificação "a.ativo = true" no início da Query
     @Query("SELECT a FROM Anuncio a WHERE a.ativo = true AND " +
            "(:tipo IS NULL OR :tipo = '' OR LOWER(a.tipoAnuncio) = LOWER(:tipo)) AND " +
            "(:search IS NULL OR :search = '' OR " +
@@ -25,13 +23,11 @@ public interface AnuncioRepository extends JpaRepository<Anuncio, Long> {
         Pageable pageable
     );
 
-    // Mantemos este para o perfil do utilizador (vê os seus próprios anúncios mesmo inativos)
+    // vê os seus próprios anúncios mesmo inativos
     List<Anuncio> findByUserId(Long userId);
-
-    // Corrigido o erro "age" para "Page"
     Page<Anuncio> findByAtivoTrue(Pageable pageable);
 
-    // Método alternativo via Spring Data (útil para filtros simples)
+    // Método alternativo via Spring Data 
     Page<Anuncio> findByAtivoTrueAndTipoAnuncioContainingAndTituloContaining(
         String tipo, String titulo, Pageable pageable);
 }

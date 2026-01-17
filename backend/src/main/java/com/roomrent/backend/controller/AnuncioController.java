@@ -45,14 +45,12 @@ public class AnuncioController {
         Sort sorting = switch (sort) {
             case "baratos" -> Sort.by("preco").ascending();
             case "caro" -> Sort.by("preco").descending();
-            case "tamanho" -> Sort.by("areaImovel").descending(); // Ajustado para coincidir com o campo da entidade
+            case "tamanho" -> Sort.by("areaImovel").descending();
             default -> Sort.by("id").descending();
         };
 
         Pageable pageable = PageRequest.of(page, size, sorting);
-        
-        // MODIFICAÇÃO: Chamamos um novo método que filtra apenas por anúncios ATIVOS
-        return anuncioRepository.findFilteredAtivos(tipo, search, pageable);
+                return anuncioRepository.findFilteredAtivos(tipo, search, pageable);
     }
 
     @GetMapping("/meus-anuncios/{userId}")
@@ -61,7 +59,6 @@ public class AnuncioController {
         return anuncioRepository.findByUserId(userId);
     }
 
-    // Localização: src/main/java/com/roomrent/backend/controller/AnuncioController.java
 
     @PostMapping
     public ResponseEntity<?> criarAnuncio(@RequestBody Anuncio anuncio, @RequestParam Long userId) {
@@ -76,7 +73,7 @@ public class AnuncioController {
             }
 
             anuncio.setUser(user);
-            anuncio.setAtivo(false); // Nasce inativo para validação do admin
+            anuncio.setAtivo(false); // Começa inativo para validação do admin
             
             Anuncio salvo = anuncioRepository.save(anuncio);
             String dadosPagamento = pagamentoService.obterReferenciaMB(5.0);

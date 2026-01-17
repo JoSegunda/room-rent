@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Obter o ID do anúncio da URL IMEDIATAMENTE (necessário para as mensagens e para o fetch)
+    // Obtem o ID do anúncio da URL IMEDIATAMENTE (necessário para as mensagens e para o fetch)
     const urlParams = new URLSearchParams(window.location.search);
     const adId = urlParams.get('id');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // 2. Gerir a Secção de Contacto (Autenticação)
+    // Gerir a Secção de Contacto (Autenticação)
     // Recuperamos o objeto completo que guardámos no Login/Registo
     const userJson = localStorage.getItem('usuarioLogado');
     const user = userJson ? JSON.parse(userJson) : null;
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(`http://localhost:8080/api/anuncios/${adId}`);
         
         if (response.status === 404) {
-            // Se o Java devolver 404, mostramos uma mensagem limpa
+            // Se o Java devolver 404, mostramos uma mensagem 
             document.body.innerHTML = `
                 <div style="text-align:center; padding:50px;">
                     <h1>Anúncio não encontrado</h1>
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const ad = await response.json();
 
-        // 4. Preencher o HTML (Verifica se os seletores batem certo com o teu HTML)
+        // Preencher o HTML
         const tituloElem = document.querySelector('.ad-info h3');
         const precoElem = document.querySelector('.ad-info h4');
         

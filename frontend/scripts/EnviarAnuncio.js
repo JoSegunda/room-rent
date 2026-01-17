@@ -1,11 +1,9 @@
-// Localização: src/main/resources/static/scripts/EnviarAnuncio.js
-
 document.addEventListener('submit', async (e) => {
-    // 1. Verificar se o formulário é o correto (ID: form-anuncio)
+    // Verificar se o formulário é o correto (ID: form-anuncio)
     if (e.target.id === 'form-anuncio') {
         e.preventDefault();
 
-        // 2. Recuperar o utilizador autenticado
+        // Recuperar o utilizador autenticado
         const userJson = localStorage.getItem('usuarioLogado');
         if (!userJson) {
             alert("Erro: Precisas de estar autenticado para publicar.");
@@ -14,7 +12,7 @@ document.addEventListener('submit', async (e) => {
         }
         const user = JSON.parse(userJson);
 
-        // 3. Capturar os dados do formulário
+        // Capturar os dados do formulário
         const formData = new FormData(e.target);
         
         // Mapeamento exato entre os nomes no HTML e os atributos da Entidade Java
@@ -35,7 +33,7 @@ document.addEventListener('submit', async (e) => {
         };
 
         try {
-            // 4. Enviar para o Backend com o userId como parâmetro
+            // Enviar para o Backend com o userId como parâmetro
             const response = await fetch(`http://localhost:8080/api/anuncios?userId=${user.id}`, {
                 method: 'POST',
                 headers: {
@@ -47,11 +45,10 @@ document.addEventListener('submit', async (e) => {
             if (response.ok) {
                 const resultado = await response.json();
                 
-                // 5. Exibir feedback ao utilizador (Requisito d: Pagamento MB)
-                alert("Sucesso! O teu anúncio foi registado.\n\n" + 
-                      "DADOS DE PAGAMENTO MB:\n" + resultado.pagamento);
+                
+                alert("Sucesso! O teu anúncio foi registado.\n\n");
 
-                // 6. Redirecionar para o perfil (SPA)
+                // Redirecionar para o perfil (SPA)
                 window.location.hash = "#nav-perfil";
             } else {
                 const erroTexto = await response.text();

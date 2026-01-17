@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // 1. Capturar dados do formulário
+            // Capturar dados do formulário
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             try {
-                // 2. Enviar pedido POST para o endpoint de login existente
+                // Enviar pedido POST para o endpoint de login existente
                 const response = await fetch('http://localhost:8080/api/users/login', {
                     method: 'POST',
                     headers: {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     const user = await response.json();
 
-                    // 3. VERIFICAÇÃO CRUCIAL: O utilizador é Administrador?
+                    // verificar se o utilizador é Administrador
                     if (user.role === 'ADMIN') {
                         // Guardar a sessão no browser
                         localStorage.setItem('usuarioLogado', JSON.stringify(user));

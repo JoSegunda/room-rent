@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- REQUISITO 1: REQUERER AUTENTICAÇÃO ---
+    //  AUTENTICAÇÃO 
     const userJson = localStorage.getItem('usuarioLogado');
     const user = userJson ? JSON.parse(userJson) : null;
 
-    // Se não houver user ou se o papel não for ADMIN, expulsa para o login
+    // Se não houver user ou se o papel não for ADMIN, expulsa para o main
     if (!user || user.role !== 'ADMIN') {
         window.location.href = '../index.html';
         return;
@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarUtilizadoresPendentes();
     carregarAnunciosPendentes();
 });
-
-// --- REQUISITO 2: PREENCHER TABELAS DE PEDIDOS PENDENTES ---
 
 async function carregarEstatisticas() {
     const res = await fetch('http://localhost:8080/api/admin/stats');
