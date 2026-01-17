@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "anuncios")
 public class Anuncio {
 
+    private boolean ativo = false;   // Anúncio começa inativo (pendente de validação)
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
