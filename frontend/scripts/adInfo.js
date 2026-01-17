@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const loggedUserId = localStorage.getItem('userId'); // Assume que guardas isto no login
+    const contactSection = document.querySelector('.contact-ad');
+
+    if (!loggedUserId) {
+        contactSection.innerHTML = "<p>Faça login para contactar o anunciante.</p>";
+    } else {
+        // Adicionar evento ao botão de enviar mensagem
+        const btnEnviar = document.querySelector('.contact-btn');
+        btnEnviar.onclick = async () => {
+            const msg = prompt("Escreva a sua mensagem:");
+            if (msg) {
+                const payload = {
+                    conteudo: msg,
+                    anuncio: { id: adId }, // adId vem da URL
+                    remetente: { id: loggedUserId }
+                };
+
+                const res = await fetch('http://localhost:8080/api/mensagens', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok) alert("Mensagem enviada!");
+            }
+        };
+    }
+
     // 1. Pegar o ID da URL (ex: ad-info.html?id=5)
     const urlParams = new URLSearchParams(window.location.search);
     const adId = urlParams.get('id');

@@ -1,5 +1,12 @@
 package com.roomrent.backend.controller;
 
+import com.roomrent.backend.model.Mensagem;
+import com.roomrent.backend.repository.MensagemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/mensagens")
 @CrossOrigin(origins = "*")

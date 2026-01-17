@@ -1,3 +1,8 @@
+package com.roomrent.backend.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "mensagens")
 public class Mensagem {
@@ -14,50 +19,19 @@ public class Mensagem {
 
     @ManyToOne
     @JoinColumn(name = "remetente_id")
-    private User remetente; // Quem envia
+    private User remetente;
 
     private LocalDateTime dataEnvio = LocalDateTime.now();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getConteudo() {
-        return conteudo;
-    }
-
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
-    }
-
-    public Anuncio getAnuncio() {
-        return anuncio;
-    }
-
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
-    }
-
-    public User getRemetente() {
-        return remetente;
-    }
-
-    public void setRemetente(User remetente) {
-        this.remetente = remetente;
-    }
-
-    public LocalDateTime getDataEnvio() {
-        return dataEnvio;
-    }
-
-    public void setDataEnvio(LocalDateTime dataEnvio) {
-        this.dataEnvio = dataEnvio;
-    }
-
     // Getters e Setters
-    
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getConteudo() { return conteudo; }
+    public void setConteudo(String conteudo) { this.conteudo = conteudo; }
+    public Anuncio getAnuncio() { return anuncio; }
+    public void setAnuncio(Anuncio anuncio) { this.anuncio = anuncio; }
+    public User getRemetente() { return remetente; }
+    public void setRemetente(User remetente) { this.remetente = remetente; }
+    public LocalDateTime getDataEnvio() { return dataEnvio; }
+    public void setDataEnvio(LocalDateTime dataEnvio) { this.dataEnvio = dataEnvio; }
 }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface AnuncioRepository extends JpaRepository<Anuncio, Long> {
@@ -22,4 +23,6 @@ public interface AnuncioRepository extends JpaRepository<Anuncio, Long> {
         @Param("search") String search, 
         Pageable pageable
     );
+
+    List<Anuncio> findByUserId(Long userId);
 }
