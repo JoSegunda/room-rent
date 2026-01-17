@@ -1,12 +1,31 @@
+package com.roomrent.backend.controller;
+
+import com.roomrent.backend.model.Anuncio;
+import com.roomrent.backend.model.User;
+import com.roomrent.backend.repository.AnuncioRepository;
+import com.roomrent.backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/api/admin")
 @CrossOrigin(origins = "*")
 public class AdminController {
 
-    @Autowired private UserRepository userRepository;
-    @Autowired private AnuncioRepository anuncioRepository;
+    @Autowired 
+    private UserRepository userRepository;
 
-    // 1. Estatísticas para o Dashboard
+    @Autowired 
+    private AnuncioRepository anuncioRepository;
+
+    // Estatísticas para o Dashboard
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Long>> getStats() {
         Map<String, Long> stats = new HashMap<>();
@@ -16,36 +35,39 @@ public class AdminController {
         return ResponseEntity.ok(stats);
     }
 
-    // 2. Listar Utilizadores Pendentes (Aprovação de conta)
+    // Listar Utilizadores Pendentes (Aprovação de conta)
     @GetMapping("/users/pendentes")
     public List<User> listarUsersPendentes() {
         return userRepository.findAll().stream()
                 .filter(u -> !u.isAprovado())
-                .toList();
+                .collect(Collectors.toList());
     }
 
-    // 3. Listar Anúncios Pendentes (Validação de conteúdo)
+    // Listar Anúncios Pendentes (Validação de conteúdo)
     @GetMapping("/anuncios/pendentes")
     public List<Anuncio> listarAnunciosPendentes() {
         return anuncioRepository.findAll().stream()
                 .filter(a -> !a.isAtivo())
-                .toList();
+                .collect(Collectors.toList());
     }
 
-    // 4. Ações de Aprovação
+    // Ações de Aprovação
     @PutMapping("/users/{id}/aprovar")
+    @Transactional
     public ResponseEntity<?> aprovarUser(@PathVariable Long id) {
-        User u = userRepository.findById(id).orElseThrow();
-        u.setAprovado(true);
-        userRepository.save(u);
-        return ResponseEntity.ok().build();
+        return userRepository.findById(id).map(u -> {
+            u.setAprovado(true);
+            userRepository.saveAndFlush(u);
+            return ResponseEntity.ok().build();
+        }).orElse(ResponseEntity.notFound().build());
     }
-
+    @Transactional
     @PutMapping("/anuncios/{id}/ativar")
     public ResponseEntity<?> ativarAnuncio(@PathVariable Long id) {
-        Anuncio a = anuncioRepository.findById(id).orElseThrow();
-        a.setAtivo(true);
-        anuncioRepository.save(a);
-        return ResponseEntity.ok().build();
+        return anuncioRepository.findById(id).map(a -> {
+            a.setAtivo(true);
+            anuncioRepository.save(a);
+            return ResponseEntity.ok().build();
+        }).orElse(ResponseEntity.notFound().build());
     }
 }

@@ -41,22 +41,31 @@ public class UserController {
     // Endpoint de Login (POST para os dados não aparecerem na URL)
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
+        System.out.println("Tentativa de login para o email: " + loginRequest.getEmail());
 
-        if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-            if (!user.isAprovado()) {
-                return ResponseEntity.status(403).body("A sua conta ainda aguarda aprovação do administrador.");
-            }
-            user.setPassword(null);
-            return ResponseEntity.ok(user);
-        }
         return userRepository.findByEmail(loginRequest.getEmail())
             .map(user -> {
-                if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-                    user.setPassword(null); // Segurança: não devolver a senha encriptada
+                // Comparar a password enviada com a da base de dados
+                boolean passwordCorreta = passwordEncoder.matches(loginRequest.getPassword(), user.getPassword());
+                
+                if (passwordCorreta) {
+                    // VERIFICAÇÃO DE APROVAÇÃO
+                    if (!"ADMIN".equals(user.getRole()) && !user.isAprovado()) {
+                        System.out.println("Login bloqueado: Utilizador não aprovado.");
+                        return ResponseEntity.status(403).body("A sua conta ainda não foi aprovada.");
+                    }
+
+                    System.out.println("Login bem-sucedido para: " + user.getNome());
+                    user.setPassword(null); // Segurança
                     return ResponseEntity.ok(user);
+                } else {
+                    System.out.println("Falha: Password incorreta para o utilizador.");
+                    return ResponseEntity.status(401).body("Palavra-passe incorreta.");
                 }
-                return ResponseEntity.status(401).body("Senha incorreta.");
             })
-            .orElse(ResponseEntity.status(401).body("Utilizador não encontrado."));
+            .orElseGet(() -> {
+                System.out.println("Falha: Email não encontrado.");
+                return ResponseEntity.status(401).body("Utilizador não encontrado.");
+            });
     }
 }

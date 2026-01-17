@@ -85,3 +85,18 @@ button{
 #fullnames input{
     width: 50%;
 }
+
+@media (max-width: 820px) {
+    .admin-container {
+        flex-direction: column;
+    }
+    #img-description{
+        display: none;
+    }
+    #img-imagem{
+        display: none;
+    }
+    #auth-content{
+        width: 100%;
+    }
+}

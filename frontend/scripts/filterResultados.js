@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         anuncios.forEach(ad => {
             const adHtml = `
                 <div class="ad-wrapper">
-                    <div class="ad-img-all" style="background-image: url('${ad.fotoUrl || '../media/default-room.jpg'}'); height: 180px; background-size: cover;"></div>
                     <div class="ad-content">
                         <h3><a href="ad-info.html?id=${ad.id}">${ad.titulo}</a></h3>
                         <h4>${ad.preco} €/mês</h4>

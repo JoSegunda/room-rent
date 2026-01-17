@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List; // Importação vital
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -45,28 +45,40 @@ public class AnuncioController {
         Sort sorting = switch (sort) {
             case "baratos" -> Sort.by("preco").ascending();
             case "caro" -> Sort.by("preco").descending();
-            case "tamanho" -> Sort.by("area").descending();
+            case "tamanho" -> Sort.by("areaImovel").descending(); // Ajustado para coincidir com o campo da entidade
             default -> Sort.by("id").descending();
         };
 
         Pageable pageable = PageRequest.of(page, size, sorting);
-        return anuncioRepository.findFiltered(tipo, search, pageable);
+        
+        // MODIFICAÇÃO: Chamamos um novo método que filtra apenas por anúncios ATIVOS
+        return anuncioRepository.findFilteredAtivos(tipo, search, pageable);
     }
 
-    // Parte (b): Listar anúncios do próprio utilizador
     @GetMapping("/meus-anuncios/{userId}")
     public List<Anuncio> listarPorUtilizador(@PathVariable Long userId) {
+        // O utilizador deve poder ver os seus próprios anúncios no perfil, mesmo inativos
         return anuncioRepository.findByUserId(userId);
     }
+
+    // Localização: src/main/java/com/roomrent/backend/controller/AnuncioController.java
 
     @PostMapping
     public ResponseEntity<?> criarAnuncio(@RequestBody Anuncio anuncio, @RequestParam Long userId) {
         try {
-            User user = userRepository.findById(userId).orElseThrow();
-            anuncio.setUser(user);
-            Anuncio salvo = anuncioRepository.save(anuncio);
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new RuntimeException("Utilizador não encontrado"));
 
-            // Parte (d): Obter referência MB externa
+            // BLOQUEIO: Verificar se o utilizador está aprovado
+            if (!user.isAprovado()) {
+                return ResponseEntity.status(403)
+                        .body("A sua conta ainda não foi aprovada pelo administrador. Não pode publicar anúncios.");
+            }
+
+            anuncio.setUser(user);
+            anuncio.setAtivo(false); // Nasce inativo para validação do admin
+            
+            Anuncio salvo = anuncioRepository.save(anuncio);
             String dadosPagamento = pagamentoService.obterReferenciaMB(5.0);
 
             Map<String, Object> resposta = new HashMap<>();
@@ -79,10 +91,14 @@ public class AnuncioController {
         }
     }
 
-    @GetMapping("/{id}") // O {id} aqui mapeia para a variável abaixo
+    @GetMapping("/{id}")
     public ResponseEntity<Anuncio> obterPorId(@PathVariable Long id) {
         return anuncioRepository.findById(id)
-                .map(ResponseEntity::ok) // Se encontrar, devolve 200 OK com o anúncio
-                .orElse(ResponseEntity.notFound().build()); // Se não encontrar, devolve 404
+                .map(ad -> {
+                    // Opcional: Impedir acesso direto via URL se o anúncio não estiver ativo
+                    if (!ad.isAtivo()) return ResponseEntity.notFound().<Anuncio>build();
+                    return ResponseEntity.ok(ad);
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

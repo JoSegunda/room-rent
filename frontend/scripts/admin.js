@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Se não houver user ou se o papel não for ADMIN, expulsa para o login
     if (!user || user.role !== 'ADMIN') {
-        window.location.href = 'adminlogin.html';
+        window.location.href = '../index.html';
         return;
     }
 
@@ -36,10 +36,10 @@ async function carregarUtilizadoresPendentes() {
             <td>${u.nome}</td>
             <td>${u.email}</td>
             <td>${u.role}</td>
-            <td>${new Date().toLocaleDateString()}</td> <td><i class="fas fa-file-pdf"></i> Ver Doc</td>
+            <td>${new Date().toLocaleDateString()}</td>
             <td>
                 <button class="btn-approve" onclick="aprovarUtilizador(${u.id})">
-                    <i class="fas fa-check"></i> Aprovar
+                    Aprovar
                 </button>
             </td>
         </tr>
@@ -60,7 +60,7 @@ async function carregarAnunciosPendentes() {
             <td>${new Date().toLocaleDateString()}</td>
             <td>
                 <button class="btn-validate" onclick="validarAnuncio(${a.id})">
-                    <i class="fas fa-eye"></i> Validar e Ativar
+                     Validar e Ativar
                 </button>
             </td>
         </tr>

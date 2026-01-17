@@ -13,12 +13,23 @@ const updateContent = () => {
 
   switch (hash) {
     case 'nav-post':
-        const fileUrl = '../pages/add-post-form.txt';
-        fetch(fileUrl)
-            .then(r => r.text())
-            .then(t => content.innerHTML = t)
-      
-      break;
+    // Verificar se o utilizador está aprovado no objeto guardado no localStorage
+      if (user && user.aprovado === false) {
+          content.innerHTML = `
+              <div class="alert-container" style="text-align:center; padding: 50px;">
+                  <i class="fas fa-user-clock" style="font-size: 4rem; color: #f39c12;"></i>
+                  <h2>Conta em Aguarda Aprovação</h2>
+                  <p>O seu registo ainda está a ser validado pela nossa equipa de administração.</p>
+                  <p>Poderá publicar anúncios assim que a sua conta for aprovada. Obrigado pela paciência!</p>
+              </div>
+          `;
+      } else {
+          const fileUrl = '../pages/add-post-form.txt';
+          fetch(fileUrl)
+              .then(r => r.text())
+              .then(t => content.innerHTML = t);
+      }
+    break;
     case 'nav-ads':
       content.innerHTML = `
           <h1>Meus anúncios</h1>
