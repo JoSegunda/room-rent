@@ -16,6 +16,11 @@
   gap: 8px;
 }
 
+#logout-btn{
+    width: 7rem;
+    background-color: rgb(194, 44, 44);
+}
+
 /* Header */
 header{
     width: 100%;

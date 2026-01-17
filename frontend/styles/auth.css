@@ -54,10 +54,10 @@ input{
     border-radius: 12px;
 
 }
-#sign-in > p{
+#login-form > p{
     color: #e8e8e9;
 }
-#sign-in a{
+#login-form a{
     color: #848485;
     font-size: .7rem;
     text-align: right;

@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(e.target);
             const userDados = {
-                // Adicionei um espaço entre o nome e apelido
-                nome: formData.get('fname') + " " + formData.get('lname'),
+                // Junta nome e apelido com um espaço
+                nome: formData.get('fname') + "  " + formData.get('lname'),
                 email: formData.get('email'),
                 password: formData.get('password')
             };
@@ -21,19 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    // 1. Receber o utilizador criado pelo Backend
+                    // 1. Recebe o utilizador criado que o Backend enviou de volta
                     const user = await response.json();
 
-                    // 2. Guardar no localStorage para que o perfilSpa.js o reconheça
+                    // 2. Guarda o utilizador no browser (isto cria a "sessão")
                     localStorage.setItem('usuarioLogado', JSON.stringify(user));
 
-                    alert("Registo concluído com sucesso!");
+                    alert("Registo concluído! A entrar no seu perfil...");
 
-                    // 3. Redirecionar diretamente para o perfil
+                    // 3. Redireciona diretamente para o perfil (ignora a página de login)
                     window.location.href = 'perfil.html';
                 } else {
                     const erro = await response.text();
-                    alert("Erro: " + erro);
+                    alert("Erro no registo: " + erro);
                 }
             } catch (error) {
                 console.error("Erro na ligação:", error);

@@ -48,29 +48,8 @@
     position: relative;
     margin-top: -80px;
 }
-
-.avatar-section {
-    display: flex;
-    align-items: flex-end;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.avatar-wrapper {
-    position: relative;
-}
-
-.profile-avatar {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 5px solid white;
-    background: var(--light-gray);
-    object-fit: cover;
-    box-shadow: var(--shadow);
-}
-
 .profile-details {
+    padding-top: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
